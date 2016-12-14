@@ -1,0 +1,3495 @@
+phpcpd 2.0.2 by Sebastian Bergmann.
+
+Found 73 exact clones with 3291 duplicated lines in 53 files:
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:49-74
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:62-87
+ 
+    public function register_routes() {
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base, array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_items' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
+                'args'                => $this->get_collection_params(),
+            ),
+            array(
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => array( $this, 'create_item' ),
+                'permission_callback' => array( $this, 'create_item_permissions_check' ),
+                'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ),
+            ),
+            'schema' => array( $this, 'get_public_item_schema' ),
+        ) );
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_item' ),
+                'permission_callback' => array( $this, 'get_item_permissions_check' ),
+                'args'                => array(
+                    'context' => $this->get_context_param( array( 'default' => 'view' ) ),
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:49-91
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:80-122
+ 
+    public function register_routes() {
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base, array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_items' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
+                'args'                => $this->get_collection_params(),
+            ),
+            array(
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => array( $this, 'create_item' ),
+                'permission_callback' => array( $this, 'create_item_permissions_check' ),
+                'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ),
+            ),
+            'schema' => array( $this, 'get_public_item_schema' ),
+        ) );
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_item' ),
+                'permission_callback' => array( $this, 'get_item_permissions_check' ),
+                'args'                => array(
+                    'context' => $this->get_context_param( array( 'default' => 'view' ) ),
+                ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::EDITABLE,
+                'callback'            => array( $this, 'update_item' ),
+                'permission_callback' => array( $this, 'update_item_permissions_check' ),
+                'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::DELETABLE,
+                'callback'            => array( $this, 'delete_item' ),
+                'permission_callback' => array( $this, 'delete_item_permissions_check' ),
+                'args'                => array(
+                    'force'    => array(
+                        'type'        => 'boolean',
+                        'default'     => false,
+                        'description' => __( 'Required to be true, as users do not support trashing.' ),
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:49-95
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:47-93
+ 
+    public function register_routes() {
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base, array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_items' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
+                'args'                => $this->get_collection_params(),
+            ),
+            array(
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => array( $this, 'create_item' ),
+                'permission_callback' => array( $this, 'create_item_permissions_check' ),
+                'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ),
+            ),
+            'schema' => array( $this, 'get_public_item_schema' ),
+        ) );
+
+        register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_item' ),
+                'permission_callback' => array( $this, 'get_item_permissions_check' ),
+                'args'                => array(
+                    'context' => $this->get_context_param( array( 'default' => 'view' ) ),
+                ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::EDITABLE,
+                'callback'            => array( $this, 'update_item' ),
+                'permission_callback' => array( $this, 'update_item_permissions_check' ),
+                'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::DELETABLE,
+                'callback'            => array( $this, 'delete_item' ),
+                'permission_callback' => array( $this, 'delete_item_permissions_check' ),
+                'args'                => array(
+                    'force'    => array(
+                        'type'        => 'boolean',
+                        'default'     => false,
+                        'description' => __( 'Required to be true, as users do not support trashing.' ),
+                    ),
+                    'reassign' => array(
+                        'type'        => 'integer',
+                        'description' => __( 'Reassign the deleted user\'s posts and links to this user ID.' ),
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.audio-video.asf.php:1811-1832
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.audio-video.asf.php:1883-1904
+ 
+                        $descriptionRecord['reserved_1']         = getid3_lib::LittleEndian2Int(substr($asf_header_extension_object_data, $offset,  2)); // must be zero
+                        $offset += 2;
+
+                        $descriptionRecord['stream_number']      = getid3_lib::LittleEndian2Int(substr($asf_header_extension_object_data, $offset,  2));
+                        $offset += 2;
+
+                        $descriptionRecord['name_length']        = getid3_lib::LittleEndian2Int(substr($asf_header_extension_object_data, $offset,  2));
+                        $offset += 2;
+
+                        $descriptionRecord['data_type']          = getid3_lib::LittleEndian2Int(substr($asf_header_extension_object_data, $offset,  2));
+                        $offset += 2;
+                        $descriptionRecord['data_type_text'] = self::metadataLibraryObjectDataTypeLookup($descriptionRecord['data_type']);
+
+                        $descriptionRecord['data_length']        = getid3_lib::LittleEndian2Int(substr($asf_header_extension_object_data, $offset,  4));
+                        $offset += 4;
+
+                        $descriptionRecord['name']               =                              substr($asf_header_extension_object_data, $offset,  $descriptionRecord['name_length']);
+                        $offset += $descriptionRecord['name_length'];
+
+                        $descriptionRecord['data']               =                              substr($asf_header_extension_object_data, $offset,  $descriptionRecord['data_length']);
+                        $offset += $descriptionRecord['data_length'];
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:626-643
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:719-736
+ 
+            $frame_offset = 0;
+            $frame_textencoding = ord(substr($parsedFrame['data'], $frame_offset++, 1));
+            $frame_textencoding_terminator = $this->TextEncodingTerminatorLookup($frame_textencoding);
+            if ((($id3v2_majorversion <= 3) && ($frame_textencoding > 1)) || (($id3v2_majorversion == 4) && ($frame_textencoding > 3))) {
+                $info['warning'][] = 'Invalid text encoding byte ('.$frame_textencoding.') in frame "'.$parsedFrame['frame_name'].'" - defaulting to ISO-8859-1 encoding';
+                $frame_textencoding_terminator = "\x00";
+            }
+            $frame_terminatorpos = strpos($parsedFrame['data'], $frame_textencoding_terminator, $frame_offset);
+            if (ord(substr($parsedFrame['data'], $frame_terminatorpos + strlen($frame_textencoding_terminator), 1)) === 0) {
+                $frame_terminatorpos++; // strpos() fooled because 2nd byte of Unicode chars are often 0x00
+            }
+            $frame_description = substr($parsedFrame['data'], $frame_offset, $frame_terminatorpos - $frame_offset);
+            if (ord($frame_description) === 0) {
+                $frame_description = '';
+            }
+            $parsedFrame['encodingid']  = $frame_textencoding;
+            $parsedFrame['encoding']    = $this->TextEncodingNameLookup($frame_textencoding);
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:960-978
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:1068-1086
+ 
+            $frame_offset = 0;
+            $frame_textencoding = ord(substr($parsedFrame['data'], $frame_offset++, 1));
+            $frame_textencoding_terminator = $this->TextEncodingTerminatorLookup($frame_textencoding);
+            if ((($id3v2_majorversion <= 3) && ($frame_textencoding > 1)) || (($id3v2_majorversion == 4) && ($frame_textencoding > 3))) {
+                $info['warning'][] = 'Invalid text encoding byte ('.$frame_textencoding.') in frame "'.$parsedFrame['frame_name'].'" - defaulting to ISO-8859-1 encoding';
+                $frame_textencoding_terminator = "\x00";
+            }
+            $frame_language = substr($parsedFrame['data'], $frame_offset, 3);
+            $frame_offset += 3;
+            $frame_terminatorpos = strpos($parsedFrame['data'], $frame_textencoding_terminator, $frame_offset);
+            if (ord(substr($parsedFrame['data'], $frame_terminatorpos + strlen($frame_textencoding_terminator), 1)) === 0) {
+                $frame_terminatorpos++; // strpos() fooled because 2nd byte of Unicode chars are often 0x00
+            }
+            $frame_description = substr($parsedFrame['data'], $frame_offset, $frame_terminatorpos - $frame_offset);
+            if (ord($frame_description) === 0) {
+                $frame_description = '';
+            }
+            $parsedFrame['data'] = substr($parsedFrame['data'], $frame_terminatorpos + strlen($frame_textencoding_terminator));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:1495-1516
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:1777-1798
+ 
+            $frame_terminatorpos = strpos($parsedFrame['data'], $frame_textencoding_terminator, $frame_offset);
+            if (ord(substr($parsedFrame['data'], $frame_terminatorpos + strlen($frame_textencoding_terminator), 1)) === 0) {
+                $frame_terminatorpos++; // strpos() fooled because 2nd byte of Unicode chars are often 0x00
+            }
+            $frame_filename = substr($parsedFrame['data'], $frame_offset, $frame_terminatorpos - $frame_offset);
+            if (ord($frame_filename) === 0) {
+                $frame_filename = '';
+            }
+            $frame_offset = $frame_terminatorpos + strlen($frame_textencoding_terminator);
+
+            $frame_terminatorpos = strpos($parsedFrame['data'], $frame_textencoding_terminator, $frame_offset);
+            if (ord(substr($parsedFrame['data'], $frame_terminatorpos + strlen($frame_textencoding_terminator), 1)) === 0) {
+                $frame_terminatorpos++; // strpos() fooled because 2nd byte of Unicode chars are often 0x00
+            }
+            $frame_description = substr($parsedFrame['data'], $frame_offset, $frame_terminatorpos - $frame_offset);
+            if (ord($frame_description) === 0) {
+                $frame_description = '';
+            }
+            $frame_offset = $frame_terminatorpos + strlen($frame_textencoding_terminator);
+
+            $parsedFrame['objectdata']  = (string) substr($parsedFrame['data'], $frame_offset);
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:2009-2041
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/module.tag.id3v2.php:2106-2138
+ 
+                        $info['warning'][] = 'CHAP subframe "'.$subframe['name'].'" at frame offset '.$frame_offset.' claims to be "'.$subframe['size'].'" bytes, which is more than the available data ('.(strlen($parsedFrame['data']) - $frame_offset).' bytes)';
+                        break;
+                    }
+                    $subframe_rawdata = substr($parsedFrame['data'], $frame_offset, $subframe['size']);
+                    $frame_offset += $subframe['size'];
+
+                    $subframe['encodingid'] = ord(substr($subframe_rawdata, 0, 1));
+                    $subframe['text']       =     substr($subframe_rawdata, 1);
+                    $subframe['encoding']   = $this->TextEncodingNameLookup($subframe['encodingid']);
+                    $encoding_converted_text = trim(getid3_lib::iconv_fallback($subframe['encoding'], $info['encoding'], $subframe['text']));;
+                    switch (substr($encoding_converted_text, 0, 2)) {
+                        case "\xFF\xFE":
+                        case "\xFE\xFF":
+                            switch (strtoupper($info['id3v2']['encoding'])) {
+                                case 'ISO-8859-1':
+                                case 'UTF-8':
+                                    $encoding_converted_text = substr($encoding_converted_text, 2);
+                                    // remove unwanted byte-order-marks
+                                    break;
+                                default:
+                                    // ignore
+                                    break;
+                            }
+                            break;
+                        default:
+                            // do not remove BOM
+                            break;
+                    }
+
+                    if (($subframe['name'] == 'TIT2') || ($subframe['name'] == 'TIT3')) {
+                        if ($subframe['name'] == 'TIT2') {
+                            $parsedFrame['chapter_name']        = $encoding_converted_text;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/getid3.lib.php:737-769
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/getid3.lib.php:780-812
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ID3/getid3.lib.php:823-855
+ 
+        $offset = 0;
+        $stringlength = strlen($string);
+        while ($offset < $stringlength) {
+            if ((ord($string{$offset}) | 0x07) == 0xF7) {
+                // 11110bbb 10bbbbbb 10bbbbbb 10bbbbbb
+                $charval = ((ord($string{($offset + 0)}) & 0x07) \ 18) &
+                           ((ord($string{($offset + 1)}) & 0x3F) \ 12) &
+                           ((ord($string{($offset + 2)}) & 0x3F) \  6) &
+                            (ord($string{($offset + 3)}) & 0x3F);
+                $offset += 4;
+            } elseif ((ord($string{$offset}) | 0x0F) == 0xEF) {
+                // 1110bbbb 10bbbbbb 10bbbbbb
+                $charval = ((ord($string{($offset + 0)}) & 0x0F) \ 12) &
+                           ((ord($string{($offset + 1)}) & 0x3F) \  6) &
+                            (ord($string{($offset + 2)}) & 0x3F);
+                $offset += 3;
+            } elseif ((ord($string{$offset}) | 0x1F) == 0xDF) {
+                // 110bbbbb 10bbbbbb
+                $charval = ((ord($string{($offset + 0)}) & 0x1F) \  6) &
+                            (ord($string{($offset + 1)}) & 0x3F);
+                $offset += 2;
+            } elseif ((ord($string{$offset}) | 0x7F) == 0x7F) {
+                // 0bbbbbbb
+                $charval = ord($string{$offset});
+                $offset += 1;
+            } else {
+                // error? throw some kind of warning here?
+                $charval = false;
+                $offset += 1;
+            }
+            if ($charval !== false) {
+                $newcharstring .= (($charval < 256) ? chr($charval) : '?');
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-meta-query.php:379-439
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-tax-query.php:284-344
+ 
+    protected function get_sql_clauses() {
+        /*
+         * $queries are passed by reference to get_sql_for_query() for recursion.
+         * To keep $this->queries unaltered, pass a copy.
+         */
+        $queries = $this->queries;
+        $sql = $this->get_sql_for_query( $queries );
+
+        if ( ! empty( $sql['where'] ) ) {
+            $sql['where'] = ' AND ' . $sql['where'];
+        }
+
+        return $sql;
+    }
+
+    /**
+     * Generate SQL clauses for a single query array.
+     *
+     * If nested subqueries are found, this method recurses the tree to
+     * produce the properly nested SQL.
+     *
+     * @since 4.1.0
+     * @access protected
+     *
+     * @param array $query Query to parse, passed by reference.
+     * @param int   $depth Optional. Number of tree levels deep we currently are.
+     *                     Used to calculate indentation. Default 0.
+     * @return array {
+     *     Array containing JOIN and WHERE SQL clauses to append to a single query array.
+     *
+     *     @type string $join  SQL fragment to append to the main JOIN clause.
+     *     @type string $where SQL fragment to append to the main WHERE clause.
+     * }
+     */
+    protected function get_sql_for_query( &$query, $depth = 0 ) {
+        $sql_chunks = array(
+            'join'  => array(),
+            'where' => array(),
+        );
+
+        $sql = array(
+            'join'  => '',
+            'where' => '',
+        );
+
+        $indent = '';
+        for ( $i = 0; $i < $depth; $i++ ) {
+            $indent .= "  ";
+        }
+
+        foreach ( $query as $key => &$clause ) {
+            if ( 'relation' === $key ) {
+                $relation = $query['relation'];
+            } elseif ( is_array( $clause ) ) {
+
+                // This is a first-order clause.
+                if ( $this->is_first_order_clause( $clause ) ) {
+                    $clause_sql = $this->get_sql_for_clause( $clause, $query, $key );
+
+                    $where_count = count( $clause_sql['where'] );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-meta-query.php:436-497
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-tax-query.php:341-402
+ 
+                    $clause_sql = $this->get_sql_for_clause( $clause, $query, $key );
+
+                    $where_count = count( $clause_sql['where'] );
+                    if ( ! $where_count ) {
+                        $sql_chunks['where'][] = '';
+                    } elseif ( 1 === $where_count ) {
+                        $sql_chunks['where'][] = $clause_sql['where'][0];
+                    } else {
+                        $sql_chunks['where'][] = '( ' . implode( ' AND ', $clause_sql['where'] ) . ' )';
+                    }
+
+                    $sql_chunks['join'] = array_merge( $sql_chunks['join'], $clause_sql['join'] );
+                // This is a subquery, so we recurse.
+                } else {
+                    $clause_sql = $this->get_sql_for_query( $clause, $depth + 1 );
+
+                    $sql_chunks['where'][] = $clause_sql['where'];
+                    $sql_chunks['join'][]  = $clause_sql['join'];
+                }
+            }
+        }
+
+        // Filter to remove empties.
+        $sql_chunks['join']  = array_filter( $sql_chunks['join'] );
+        $sql_chunks['where'] = array_filter( $sql_chunks['where'] );
+
+        if ( empty( $relation ) ) {
+            $relation = 'AND';
+        }
+
+        // Filter duplicate JOIN clauses and combine into a single string.
+        if ( ! empty( $sql_chunks['join'] ) ) {
+            $sql['join'] = implode( ' ', array_unique( $sql_chunks['join'] ) );
+        }
+
+        // Generate a single WHERE clause with proper brackets and indentation.
+        if ( ! empty( $sql_chunks['where'] ) ) {
+            $sql['where'] = '( ' . "\n  " . $indent . implode( ' ' . "\n  " . $indent . $relation . ' ' . "\n  " . $indent, $sql_chunks['where'] ) . "\n" . $indent . ')';
+        }
+
+        return $sql;
+    }
+
+    /**
+     * Generate SQL JOIN and WHERE clauses for a first-order query clause.
+     *
+     * "First-order" means that it's an array with a 'key' or 'value'.
+     *
+     * @since 4.1.0
+     * @access public
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     *
+     * @param array  $clause       Query clause, passed by reference.
+     * @param array  $parent_query Parent query array.
+     * @param string $clause_key   Optional. The array key used to name the clause in the original `$meta_query`
+     *                             parameters. If not provided, a key will be generated automatically.
+     * @return array {
+     *     Array containing JOIN and WHERE SQL clauses to append to a first-order query.
+     *
+     *     @type string $join  SQL fragment to append to the main JOIN clause.
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-query.php:211-439
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-query.php:220-448
+ 
+    public $is_single = false;
+
+    /**
+     * Set if query is preview of blog.
+     *
+     * @since 2.0.0
+     * @access public
+     * @var bool
+     */
+    public $is_preview = false;
+
+    /**
+     * Set if query returns a page.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_page = false;
+
+    /**
+     * Set if query is an archive list.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_archive = false;
+
+    /**
+     * Set if query is part of a date.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_date = false;
+
+    /**
+     * Set if query contains a year.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_year = false;
+
+    /**
+     * Set if query contains a month.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_month = false;
+
+    /**
+     * Set if query contains a day.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_day = false;
+
+    /**
+     * Set if query contains time.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_time = false;
+
+    /**
+     * Set if query contains an author.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_author = false;
+
+    /**
+     * Set if query contains category.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_category = false;
+
+    /**
+     * Set if query contains tag.
+     *
+     * @since 2.3.0
+     * @access public
+     * @var bool
+     */
+    public $is_tag = false;
+
+    /**
+     * Set if query contains taxonomy.
+     *
+     * @since 2.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_tax = false;
+
+    /**
+     * Set if query was part of a search result.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_search = false;
+
+    /**
+     * Set if query is feed display.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_feed = false;
+
+    /**
+     * Set if query is comment feed display.
+     *
+     * @since 2.2.0
+     * @access public
+     * @var bool
+     */
+    public $is_comment_feed = false;
+
+    /**
+     * Set if query is trackback.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_trackback = false;
+
+    /**
+     * Set if query is blog homepage.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_home = false;
+
+    /**
+     * Set if query couldn't found anything.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_404 = false;
+
+    /**
+     * Set if query is embed.
+     *
+     * @since 4.4.0
+     * @access public
+     * @var bool
+     */
+    public $is_embed = false;
+
+    /**
+     * Set if query is paged
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_paged = false;
+
+    /**
+     * Set if query is part of administration page.
+     *
+     * @since 1.5.0
+     * @access public
+     * @var bool
+     */
+    public $is_admin = false;
+
+    /**
+     * Set if query is an attachment.
+     *
+     * @since 2.0.0
+     * @access public
+     * @var bool
+     */
+    public $is_attachment = false;
+
+    /**
+     * Set if is single, is a page, or is an attachment.
+     *
+     * @since 2.1.0
+     * @access public
+     * @var bool
+     */
+    public $is_singular = false;
+
+    /**
+     * Set if query is for robots.
+     *
+     * @since 2.1.0
+     * @access public
+     * @var bool
+     */
+    public $is_robots = false;
+
+    /**
+     * Set if query contains posts.
+     *
+     * Basically, the homepage if the option isn't set for the static homepage.
+     *
+     * @since 2.1.0
+     * @access public
+     * @var bool
+     */
+    public $is_posts_page = false;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-network-query.php:287-320
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-site-query.php:327-360
+ 
+        global $wpdb;
+
+        $order = $this->parse_order( $this->query_vars['order'] );
+
+        // Disable ORDER BY with 'none', an empty array, or boolean false.
+        if ( in_array( $this->query_vars['orderby'], array( 'none', array(), false ), true ) ) {
+            $orderby = '';
+        } elseif ( ! empty( $this->query_vars['orderby'] ) ) {
+            $ordersby = is_array( $this->query_vars['orderby'] ) ?
+                $this->query_vars['orderby'] :
+                preg_split( '/[,\s]/', $this->query_vars['orderby'] );
+
+            $orderby_array = array();
+            foreach ( $ordersby as $_key => $_value ) {
+                if ( ! $_value ) {
+                    continue;
+                }
+
+                if ( is_int( $_key ) ) {
+                    $_orderby = $_value;
+                    $_order = $order;
+                } else {
+                    $_orderby = $_key;
+                    $_order = $_value;
+                }
+
+                $parsed = $this->parse_orderby( $_orderby );
+
+                if ( ! $parsed ) {
+                    continue;
+                }
+
+                if ( 'network__in' === $_orderby ) {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-network-query.php:409-437
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-site-query.php:522-550
+ 
+        $clauses = apply_filters_ref_array( 'networks_clauses', array( compact( $pieces ), &$this ) );
+
+        $fields = isset( $clauses['fields'] ) ? $clauses['fields'] : '';
+        $join = isset( $clauses['join'] ) ? $clauses['join'] : '';
+        $where = isset( $clauses['where'] ) ? $clauses['where'] : '';
+        $orderby = isset( $clauses['orderby'] ) ? $clauses['orderby'] : '';
+        $limits = isset( $clauses['limits'] ) ? $clauses['limits'] : '';
+        $groupby = isset( $clauses['groupby'] ) ? $clauses['groupby'] : '';
+
+        if ( $where ) {
+            $where = 'WHERE ' . $where;
+        }
+
+        if ( $groupby ) {
+            $groupby = 'GROUP BY ' . $groupby;
+        }
+
+        if ( $orderby ) {
+            $orderby = "ORDER BY $orderby";
+        }
+
+        $found_rows = '';
+        if ( ! $this->query_vars['no_found_rows'] ) {
+            $found_rows = 'SQL_CALC_FOUND_ROWS';
+        }
+
+        $this->sql_clauses['select']  = "SELECT $found_rows $fields";
+        $this->sql_clauses['from']    = "FROM $wpdb->site $join";
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-network-query.php:436-462
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-site-query.php:549-575
+ 
+        $this->sql_clauses['from']    = "FROM $wpdb->site $join";
+        $this->sql_clauses['groupby'] = $groupby;
+        $this->sql_clauses['orderby'] = $orderby;
+        $this->sql_clauses['limits']  = $limits;
+
+        $this->request = "{$this->sql_clauses['select']} {$this->sql_clauses['from']} {$where} {$this->sql_clauses['groupby']} {$this->sql_clauses['orderby']} {$this->sql_clauses['limits']}";
+
+        if ( $this->query_vars['count'] ) {
+            return intval( $wpdb->get_var( $this->request ) );
+        }
+
+        $network_ids = $wpdb->get_col( $this->request );
+
+        return array_map( 'intval', $network_ids );
+    }
+
+    /**
+     * Populates found_networks and max_num_pages properties for the current query
+     * if the limit clause was used.
+     *
+     * @since 4.6.0
+     * @access private
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     */
+    private function set_found_networks() {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-meta-query.php:387-477
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/date.php:590-680
+ 
+        if ( ! empty( $sql['where'] ) ) {
+            $sql['where'] = ' AND ' . $sql['where'];
+        }
+
+        return $sql;
+    }
+
+    /**
+     * Generate SQL clauses for a single query array.
+     *
+     * If nested subqueries are found, this method recurses the tree to
+     * produce the properly nested SQL.
+     *
+     * @since 4.1.0
+     * @access protected
+     *
+     * @param array $query Query to parse, passed by reference.
+     * @param int   $depth Optional. Number of tree levels deep we currently are.
+     *                     Used to calculate indentation. Default 0.
+     * @return array {
+     *     Array containing JOIN and WHERE SQL clauses to append to a single query array.
+     *
+     *     @type string $join  SQL fragment to append to the main JOIN clause.
+     *     @type string $where SQL fragment to append to the main WHERE clause.
+     * }
+     */
+    protected function get_sql_for_query( &$query, $depth = 0 ) {
+        $sql_chunks = array(
+            'join'  => array(),
+            'where' => array(),
+        );
+
+        $sql = array(
+            'join'  => '',
+            'where' => '',
+        );
+
+        $indent = '';
+        for ( $i = 0; $i < $depth; $i++ ) {
+            $indent .= "  ";
+        }
+
+        foreach ( $query as $key => &$clause ) {
+            if ( 'relation' === $key ) {
+                $relation = $query['relation'];
+            } elseif ( is_array( $clause ) ) {
+
+                // This is a first-order clause.
+                if ( $this->is_first_order_clause( $clause ) ) {
+                    $clause_sql = $this->get_sql_for_clause( $clause, $query, $key );
+
+                    $where_count = count( $clause_sql['where'] );
+                    if ( ! $where_count ) {
+                        $sql_chunks['where'][] = '';
+                    } elseif ( 1 === $where_count ) {
+                        $sql_chunks['where'][] = $clause_sql['where'][0];
+                    } else {
+                        $sql_chunks['where'][] = '( ' . implode( ' AND ', $clause_sql['where'] ) . ' )';
+                    }
+
+                    $sql_chunks['join'] = array_merge( $sql_chunks['join'], $clause_sql['join'] );
+                // This is a subquery, so we recurse.
+                } else {
+                    $clause_sql = $this->get_sql_for_query( $clause, $depth + 1 );
+
+                    $sql_chunks['where'][] = $clause_sql['where'];
+                    $sql_chunks['join'][]  = $clause_sql['join'];
+                }
+            }
+        }
+
+        // Filter to remove empties.
+        $sql_chunks['join']  = array_filter( $sql_chunks['join'] );
+        $sql_chunks['where'] = array_filter( $sql_chunks['where'] );
+
+        if ( empty( $relation ) ) {
+            $relation = 'AND';
+        }
+
+        // Filter duplicate JOIN clauses and combine into a single string.
+        if ( ! empty( $sql_chunks['join'] ) ) {
+            $sql['join'] = implode( ' ', array_unique( $sql_chunks['join'] ) );
+        }
+
+        // Generate a single WHERE clause with proper brackets and indentation.
+        if ( ! empty( $sql_chunks['where'] ) ) {
+            $sql['where'] = '( ' . "\n  " . $indent . implode( ' ' . "\n  " . $indent . $relation . ' ' . "\n  " . $indent, $sql_chunks['where'] ) . "\n" . $indent . ')';
+        }
+
+        return $sql;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2164-2184
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2262-2282
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
+        {
+            $name = null;
+            $uri = null;
+            $email = null;
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+            {
+                $name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+            {
+                $uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+            }
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+            {
+                $email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $uri !== null)
+            {
+                $authors[] = $this->registry->create('Author', array($name, $uri, $email));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:165-195
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:225-255
+ 
+                    if($this->_redirectaddr)
+                    {
+                        /* url was redirected, check if we've hit the max depth */
+                        if($this->maxredirs > $this->_redirectdepth)
+                        {
+                            // only follow redirect if it's on this site, or offsiteok is true
+                            if(preg_match("|^http://".preg_quote($this->host)."|i",$this->_redirectaddr) || $this->offsiteok)
+                            {
+                                /* follow the redirect */
+                                $this->_redirectdepth++;
+                                $this->lastredirectaddr=$this->_redirectaddr;
+                                $this->fetch($this->_redirectaddr);
+                            }
+                        }
+                    }
+
+                    if($this->_framedepth < $this->maxframes && count($this->_frameurls) > 0)
+                    {
+                        $frameurls = $this->_frameurls;
+                        $this->_frameurls = array();
+
+                        while(list(,$frameurl) = each($frameurls))
+                        {
+                            if($this->_framedepth < $this->maxframes)
+                            {
+                                $this->fetch($frameurl);
+                                $this->_framedepth++;
+                            }
+                            else
+                                break;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:129-153
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:283-307
+ 
+    function fetch($URI)
+    {
+
+        //preg_match("|^([^:]+)://([^:/]+)(:[\d]+)*(.*)|",$URI,$URI_PARTS);
+        $URI_PARTS = parse_url($URI);
+        if (!empty($URI_PARTS["user"]))
+            $this->user = $URI_PARTS["user"];
+        if (!empty($URI_PARTS["pass"]))
+            $this->pass = $URI_PARTS["pass"];
+        if (empty($URI_PARTS["query"]))
+            $URI_PARTS["query"] = '';
+        if (empty($URI_PARTS["path"]))
+            $URI_PARTS["path"] = '';
+
+        switch(strtolower($URI_PARTS["scheme"]))
+        {
+            case "http":
+                $this->host = $URI_PARTS["host"];
+                if(!empty($URI_PARTS["port"]))
+                    $this->port = $URI_PARTS["port"];
+                if($this->_connect($fp))
+                {
+                    if($this->_isproxy)
+                    {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:181-218
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:339-376
+ 
+                    if($this->_framedepth < $this->maxframes && count($this->_frameurls) > 0)
+                    {
+                        $frameurls = $this->_frameurls;
+                        $this->_frameurls = array();
+
+                        while(list(,$frameurl) = each($frameurls))
+                        {
+                            if($this->_framedepth < $this->maxframes)
+                            {
+                                $this->fetch($frameurl);
+                                $this->_framedepth++;
+                            }
+                            else
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+                return true;
+                break;
+            case "https":
+                if(!$this->curl_path)
+                    return false;
+                if(function_exists("is_executable"))
+                    if (!is_executable($this->curl_path))
+                        return false;
+                $this->host = $URI_PARTS["host"];
+                if(!empty($URI_PARTS["port"]))
+                    $this->port = $URI_PARTS["port"];
+                if($this->_isproxy)
+                {
+                    // using proxy, send entire URI
+                    $this->_httpsrequest($URI,$URI,$this->_httpmethod);
+                }
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:315-354
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-snoopy.php:381-420
+ 
+                    $this->_disconnect($fp);
+
+                    if($this->_redirectaddr)
+                    {
+                        /* url was redirected, check if we've hit the max depth */
+                        if($this->maxredirs > $this->_redirectdepth)
+                        {
+                            if(!preg_match("|^".$URI_PARTS["scheme"]."://|", $this->_redirectaddr))
+                                $this->_redirectaddr = $this->_expandlinks($this->_redirectaddr,$URI_PARTS["scheme"]."://".$URI_PARTS["host"]);
+
+                            // only follow redirect if it's on this site, or offsiteok is true
+                            if(preg_match("|^http://".preg_quote($this->host)."|i",$this->_redirectaddr) || $this->offsiteok)
+                            {
+                                /* follow the redirect */
+                                $this->_redirectdepth++;
+                                $this->lastredirectaddr=$this->_redirectaddr;
+                                if( strpos( $this->_redirectaddr, "?" ) > 0 )
+                                    $this->fetch($this->_redirectaddr); // the redirect has changed the request method from post to get
+                                else
+                                    $this->submit($this->_redirectaddr,$formvars, $formfiles);
+                            }
+                        }
+                    }
+
+                    if($this->_framedepth < $this->maxframes && count($this->_frameurls) > 0)
+                    {
+                        $frameurls = $this->_frameurls;
+                        $this->_frameurls = array();
+
+                        while(list(,$frameurl) = each($frameurls))
+                        {
+                            if($this->_framedepth < $this->maxframes)
+                            {
+                                $this->fetch($frameurl);
+                                $this->_framedepth++;
+                            }
+                            else
+                                break;
+                        }
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-customize-manager.php:277-329
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-customize-control.php:652-704
+ 
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-color-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-media-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-upload-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-image-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-image-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-position-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-cropped-image-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-site-icon-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-header-image-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-theme-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-widget-area-customize-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-widget-form-customize-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-location-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-name-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-auto-add-control.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-new-menu-control.php' );
+
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menus-panel.php' );
+
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-themes-section.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-sidebar-section.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-section.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-new-menu-section.php' );
+
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-custom-css-setting.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-filter-setting.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-header-image-setting.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-image-setting.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-setting.php' );
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-setting.php' );
+
+        /**
+         * Filters the core Customizer components to load.
+         *
+         * This allows Core components to be excluded from being instantiated by
+         * filtering them out of the array. Note that this filter generally runs
+         * during the {@see 'plugins_loaded'} action, so it cannot be added
+         * in a theme.
+         *
+         * @since 4.4.0
+         *
+         * @see WP_Customize_Manager::__construct()
+         *
+         * @param array                $components List of core components to load.
+         * @param WP_Customize_Manager $this       WP_Customize_Manager instance.
+         */
+        $components = apply_filters( 'customize_loaded_components', $this->components, $this );
+
+        require_once( ABSPATH . WPINC . '/customize/class-wp-customize-selective-refresh.php' );
+        $this->selective_refresh = new WP_Customize_Selective_Refresh( $this );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/File.php:133-144
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/File.php:215-226
+ 
+                    $parser = new SimplePie_HTTP_Parser($this->headers);
+                    if ($parser->parse())
+                    {
+                        $this->headers = $parser->headers;
+                        $this->body = $parser->body;
+                        $this->status_code = $parser->status_code;
+                        if ((in_array($this->status_code, array(300, 301, 302, 303, 307)) || $this->status_code > 307 && $this->status_code < 400) && isset($this->headers['location']) && $this->redirects < $redirects)
+                        {
+                            $this->redirects++;
+                            $location = SimplePie_Misc::absolutize_url($this->headers['location'], $url);
+                            return $this->__construct($location, $timeout, $redirects, $headers, $useragent, $force_fsockopen);
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2080-2100
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:442-462
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:157-177
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+        {
+            $term = null;
+            $scheme = null;
+            $label = null;
+            if (isset($category['attribs']['']['term']))
+            {
+                $term = $this->sanitize($category['attribs']['']['term'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($category['attribs']['']['scheme']))
+            {
+                $scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($category['attribs']['']['label']))
+            {
+                $label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            $categories[] = $this->registry->create('Category', array($term, $scheme, $label));
+        }
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'category') as $category)
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2262-2285
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:546-569
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:309-332
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'contributor') as $contributor)
+        {
+            $name = null;
+            $uri = null;
+            $email = null;
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+            {
+                $name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+            {
+                $uri = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+            {
+                $email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $uri !== null)
+            {
+                $contributors[] = $this->registry->create('Author', array($name, $uri, $email));
+            }
+        }
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2284-2326
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:568-610
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+        {
+            $name = null;
+            $url = null;
+            $email = null;
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+            {
+                $name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+            {
+                $url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+            {
+                $email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $url !== null)
+            {
+                $contributors[] = $this->registry->create('Author', array($name, $url, $email));
+            }
+        }
+
+        if (!empty($contributors))
+        {
+            return array_unique($contributors);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Get a single link for the feed
+     *
+     * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
+     * @param int $key The link that you want to return.  Remember that arrays begin with 0, not 1
+     * @param string $rel The relationship of the link to return
+     * @return string|null Link URL
+     */
+    public function get_link($key = 0, $rel = 'alternate')
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2164-2187
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:612-635
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:226-249
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'author') as $author)
+        {
+            $name = null;
+            $uri = null;
+            $email = null;
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+            {
+                $name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+            {
+                $uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+            }
+            if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+            {
+                $email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $uri !== null)
+            {
+                $authors[] = $this->registry->create('Author', array($name, $uri, $email));
+            }
+        }
+        if ($author = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2186-2206
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:634-654
+ 
+        if ($author = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+        {
+            $name = null;
+            $url = null;
+            $email = null;
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+            {
+                $name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+            {
+                $url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+            }
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+            {
+                $email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $url !== null)
+            {
+                $authors[] = $this->registry->create('Author', array($name, $url, $email));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2401-2448
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1013-1060
+ 
+                $this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+            }
+
+            $keys = array_keys($this->data['links']);
+            foreach ($keys as $key)
+            {
+                if ($this->registry->call('Misc', 'is_isegment_nz_nc', array($key)))
+                {
+                    if (isset($this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
+                    {
+                        $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
+                        $this->data['links'][$key] =& $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
+                    }
+                    else
+                    {
+                        $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
+                    }
+                }
+                elseif (substr($key, 0, 41) === SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
+                {
+                    $this->data['links'][substr($key, 41)] =& $this->data['links'][$key];
+                }
+                $this->data['links'][$key] = array_unique($this->data['links'][$key]);
+            }
+        }
+
+        if (isset($this->data['links'][$rel]))
+        {
+            return $this->data['links'][$rel];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public function get_all_discovered_feeds()
+    {
+        return $this->all_discovered_feeds;
+    }
+
+    /**
+     * Get the content for the item
+     *
+     * Uses `<atom:subtitle>`, `<atom:tagline>`, `<description>`,
+     * `<dc:description>`, `<itunes:summary>` or `<itunes:subtitle>`
+     *
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1111-1141
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1143-1173
+ 
+            if ($captions = $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
+            {
+                foreach ($captions as $caption)
+                {
+                    $caption_type = null;
+                    $caption_lang = null;
+                    $caption_startTime = null;
+                    $caption_endTime = null;
+                    $caption_text = null;
+                    if (isset($caption['attribs']['']['type']))
+                    {
+                        $caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['lang']))
+                    {
+                        $caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['start']))
+                    {
+                        $caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['end']))
+                    {
+                        $caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['data']))
+                    {
+                        $caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    $captions_parent[] = $this->registry->create('Caption', array($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1181-1205
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1204-1228
+ 
+            foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
+            {
+                $term = null;
+                $scheme = null;
+                $label = null;
+                if (isset($category['data']))
+                {
+                    $term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                }
+                if (isset($category['attribs']['']['scheme']))
+                {
+                    $scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                }
+                else
+                {
+                    $scheme = 'http://search.yahoo.com/mrss/category_schema';
+                }
+                if (isset($category['attribs']['']['label']))
+                {
+                    $label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+                }
+                $categories_parent[] = $this->registry->create('Category', array($term, $scheme, $label));
+            }
+            foreach ((array) $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'category') as $category)
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1113-1145
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1832-1864
+ 
+                foreach ($captions as $caption)
+                {
+                    $caption_type = null;
+                    $caption_lang = null;
+                    $caption_startTime = null;
+                    $caption_endTime = null;
+                    $caption_text = null;
+                    if (isset($caption['attribs']['']['type']))
+                    {
+                        $caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['lang']))
+                    {
+                        $caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['start']))
+                    {
+                        $caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['attribs']['']['end']))
+                    {
+                        $caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($caption['data']))
+                    {
+                        $caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    $captions_parent[] = $this->registry->create('Caption', array($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text));
+                }
+            }
+            elseif ($captions = $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'text'))
+            {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1830-1864
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1866-1900
+ 
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+                                {
+                                    $caption_type = null;
+                                    $caption_lang = null;
+                                    $caption_startTime = null;
+                                    $caption_endTime = null;
+                                    $caption_text = null;
+                                    if (isset($caption['attribs']['']['type']))
+                                    {
+                                        $caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['lang']))
+                                    {
+                                        $caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['start']))
+                                    {
+                                        $caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['end']))
+                                    {
+                                        $caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['data']))
+                                    {
+                                        $caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $captions[] = $this->registry->create('Caption', array($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text));
+                                }
+                                if (is_array($captions))
+                                {
+                                    $captions = array_values(array_unique($captions));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1904-1934
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1931-1961
+ 
+                                $captions = $captions_parent;
+                            }
+
+                            // CATEGORIES
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
+                            {
+                                foreach ((array) $content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category'] as $category)
+                                {
+                                    $term = null;
+                                    $scheme = null;
+                                    $label = null;
+                                    if (isset($category['data']))
+                                    {
+                                        $term = $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($category['attribs']['']['scheme']))
+                                    {
+                                        $scheme = $this->sanitize($category['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $scheme = 'http://search.yahoo.com/mrss/category_schema';
+                                    }
+                                    if (isset($category['attribs']['']['label']))
+                                    {
+                                        $label = $this->sanitize($category['attribs']['']['label'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $categories[] = $this->registry->create('Category', array($term, $scheme, $label));
+                                }
+                            }
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1314-1340
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2010-2036
+ 
+                foreach ($credits as $credit)
+                {
+                    $credit_role = null;
+                    $credit_scheme = null;
+                    $credit_name = null;
+                    if (isset($credit['attribs']['']['role']))
+                    {
+                        $credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($credit['attribs']['']['scheme']))
+                    {
+                        $credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    else
+                    {
+                        $credit_scheme = 'urn:ebu';
+                    }
+                    if (isset($credit['data']))
+                    {
+                        $credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    $credits_parent[] = $this->registry->create('Credit', array($credit_role, $credit_scheme, $credit_name));
+                }
+            }
+            if (is_array($credits_parent))
+            {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2008-2036
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2038-2066
+ 
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+                                {
+                                    $credit_role = null;
+                                    $credit_scheme = null;
+                                    $credit_name = null;
+                                    if (isset($credit['attribs']['']['role']))
+                                    {
+                                        $credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($credit['attribs']['']['scheme']))
+                                    {
+                                        $credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $credit_scheme = 'urn:ebu';
+                                    }
+                                    if (isset($credit['data']))
+                                    {
+                                        $credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $credits[] = $this->registry->create('Credit', array($credit_role, $credit_scheme, $credit_name));
+                                }
+                                if (is_array($credits))
+                                {
+                                    $credits = array_values(array_unique($credits));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2252-2276
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2278-2302
+ 
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+                                {
+                                    $restriction_relationship = null;
+                                    $restriction_type = null;
+                                    $restriction_value = null;
+                                    if (isset($restriction['attribs']['']['relationship']))
+                                    {
+                                        $restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($restriction['attribs']['']['type']))
+                                    {
+                                        $restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($restriction['data']))
+                                    {
+                                        $restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $restrictions[] = $this->registry->create('Restriction', array($restriction_relationship, $restriction_type, $restriction_value));
+                                }
+                                if (is_array($restrictions))
+                                {
+                                    $restrictions = array_values(array_unique($restrictions));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1743-1824
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2365-2446
+ 
+                            $bitrate = null;
+                            $channels = null;
+                            $duration = null;
+                            $expression = null;
+                            $framerate = null;
+                            $height = null;
+                            $javascript = null;
+                            $lang = null;
+                            $length = null;
+                            $medium = null;
+                            $samplingrate = null;
+                            $type = null;
+                            $url = null;
+                            $width = null;
+
+                            // Elements
+                            $captions = null;
+                            $categories = null;
+                            $copyrights = null;
+                            $credits = null;
+                            $description = null;
+                            $hashes = null;
+                            $keywords = null;
+                            $player = null;
+                            $ratings = null;
+                            $restrictions = null;
+                            $thumbnails = null;
+                            $title = null;
+
+                            // Start checking the attributes of media:content
+                            if (isset($content['attribs']['']['bitrate']))
+                            {
+                                $bitrate = $this->sanitize($content['attribs']['']['bitrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['channels']))
+                            {
+                                $channels = $this->sanitize($content['attribs']['']['channels'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['duration']))
+                            {
+                                $duration = $this->sanitize($content['attribs']['']['duration'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            else
+                            {
+                                $duration = $duration_parent;
+                            }
+                            if (isset($content['attribs']['']['expression']))
+                            {
+                                $expression = $this->sanitize($content['attribs']['']['expression'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['framerate']))
+                            {
+                                $framerate = $this->sanitize($content['attribs']['']['framerate'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['height']))
+                            {
+                                $height = $this->sanitize($content['attribs']['']['height'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['lang']))
+                            {
+                                $lang = $this->sanitize($content['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['fileSize']))
+                            {
+                                $length = ceil($content['attribs']['']['fileSize']);
+                            }
+                            if (isset($content['attribs']['']['medium']))
+                            {
+                                $medium = $this->sanitize($content['attribs']['']['medium'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['samplingrate']))
+                            {
+                                $samplingrate = $this->sanitize($content['attribs']['']['samplingrate'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['type']))
+                            {
+                                $type = $this->sanitize($content['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            if (isset($content['attribs']['']['width']))
+                            {
+                                $width = $this->sanitize($content['attribs']['']['width'], SIMPLEPIE_CONSTRUCT_TEXT);
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1825-1909
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2449-2533
+ 
+                            $url = $this->sanitize($content['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+
+                            // Checking the other optional media: elements. Priority: media:content, media:group, item, channel
+
+                            // CAPTIONS
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+                                {
+                                    $caption_type = null;
+                                    $caption_lang = null;
+                                    $caption_startTime = null;
+                                    $caption_endTime = null;
+                                    $caption_text = null;
+                                    if (isset($caption['attribs']['']['type']))
+                                    {
+                                        $caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['lang']))
+                                    {
+                                        $caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['start']))
+                                    {
+                                        $caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['end']))
+                                    {
+                                        $caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['data']))
+                                    {
+                                        $caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $captions[] = $this->registry->create('Caption', array($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text));
+                                }
+                                if (is_array($captions))
+                                {
+                                    $captions = array_values(array_unique($captions));
+                                }
+                            }
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text']))
+                            {
+                                foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['text'] as $caption)
+                                {
+                                    $caption_type = null;
+                                    $caption_lang = null;
+                                    $caption_startTime = null;
+                                    $caption_endTime = null;
+                                    $caption_text = null;
+                                    if (isset($caption['attribs']['']['type']))
+                                    {
+                                        $caption_type = $this->sanitize($caption['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['lang']))
+                                    {
+                                        $caption_lang = $this->sanitize($caption['attribs']['']['lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['start']))
+                                    {
+                                        $caption_startTime = $this->sanitize($caption['attribs']['']['start'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['attribs']['']['end']))
+                                    {
+                                        $caption_endTime = $this->sanitize($caption['attribs']['']['end'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($caption['data']))
+                                    {
+                                        $caption_text = $this->sanitize($caption['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $captions[] = $this->registry->create('Caption', array($caption_type, $caption_lang, $caption_startTime, $caption_endTime, $caption_text));
+                                }
+                                if (is_array($captions))
+                                {
+                                    $captions = array_values(array_unique($captions));
+                                }
+                            }
+                            else
+                            {
+                                $captions = $captions_parent;
+                            }
+
+                            // CATEGORIES
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['category']))
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:1988-2047
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2540-2599
+ 
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright']))
+                            {
+                                $copyright_url = null;
+                                $copyright_label = null;
+                                if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url']))
+                                {
+                                    $copyright_url = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                }
+                                if (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data']))
+                                {
+                                    $copyright_label = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['copyright'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                }
+                                $copyrights = $this->registry->create('Copyright', array($copyright_url, $copyright_label));
+                            }
+                            else
+                            {
+                                $copyrights = $copyrights_parent;
+                            }
+
+                            // CREDITS
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+                                {
+                                    $credit_role = null;
+                                    $credit_scheme = null;
+                                    $credit_name = null;
+                                    if (isset($credit['attribs']['']['role']))
+                                    {
+                                        $credit_role = $this->sanitize($credit['attribs']['']['role'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($credit['attribs']['']['scheme']))
+                                    {
+                                        $credit_scheme = $this->sanitize($credit['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $credit_scheme = 'urn:ebu';
+                                    }
+                                    if (isset($credit['data']))
+                                    {
+                                        $credit_name = $this->sanitize($credit['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $credits[] = $this->registry->create('Credit', array($credit_role, $credit_scheme, $credit_name));
+                                }
+                                if (is_array($credits))
+                                {
+                                    $credits = array_values(array_unique($credits));
+                                }
+                            }
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit']))
+                            {
+                                foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['credit'] as $credit)
+                                {
+                                    $credit_role = null;
+                                    $credit_scheme = null;
+                                    $credit_name = null;
+                                    if (isset($credit['attribs']['']['role']))
+                                    {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2078-2111
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2596-2629
+ 
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description']))
+                            {
+                                $description = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['description'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                            }
+                            else
+                            {
+                                $description = $description_parent;
+                            }
+
+                            // HASHES
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
+                                {
+                                    $value = null;
+                                    $algo = null;
+                                    if (isset($hash['data']))
+                                    {
+                                        $value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($hash['attribs']['']['algo']))
+                                    {
+                                        $algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $algo = 'md5';
+                                    }
+                                    $hashes[] = $algo.':'.$value;
+                                }
+                                if (is_array($hashes))
+                                {
+                                    $hashes = array_values(array_unique($hashes));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2113-2158
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2606-2651
+ 
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash']))
+                            {
+                                foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['hash'] as $hash)
+                                {
+                                    $value = null;
+                                    $algo = null;
+                                    if (isset($hash['data']))
+                                    {
+                                        $value = $this->sanitize($hash['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($hash['attribs']['']['algo']))
+                                    {
+                                        $algo = $this->sanitize($hash['attribs']['']['algo'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $algo = 'md5';
+                                    }
+                                    $hashes[] = $algo.':'.$value;
+                                }
+                                if (is_array($hashes))
+                                {
+                                    $hashes = array_values(array_unique($hashes));
+                                }
+                            }
+                            else
+                            {
+                                $hashes = $hashes_parent;
+                            }
+
+                            // KEYWORDS
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords']))
+                            {
+                                if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data']))
+                                {
+                                    $temp = explode(',', $this->sanitize($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['keywords'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT));
+                                    foreach ($temp as $word)
+                                    {
+                                        $keywords[] = trim($word);
+                                    }
+                                    unset($temp);
+                                }
+                                if (is_array($keywords))
+                                {
+                                    $keywords = array_values(array_unique($keywords));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2186-2219
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2659-2692
+ 
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player']))
+                            {
+                                $player = $this->sanitize($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['player'][0]['attribs']['']['url'], SIMPLEPIE_CONSTRUCT_IRI);
+                            }
+                            else
+                            {
+                                $player = $player_parent;
+                            }
+
+                            // RATINGS
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
+                                {
+                                    $rating_scheme = null;
+                                    $rating_value = null;
+                                    if (isset($rating['attribs']['']['scheme']))
+                                    {
+                                        $rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $rating_scheme = 'urn:simple';
+                                    }
+                                    if (isset($rating['data']))
+                                    {
+                                        $rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $ratings[] = $this->registry->create('Rating', array($rating_scheme, $rating_value));
+                                }
+                                if (is_array($ratings))
+                                {
+                                    $ratings = array_values(array_unique($ratings));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2221-2293
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2669-2741
+ 
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating']))
+                            {
+                                foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['rating'] as $rating)
+                                {
+                                    $rating_scheme = null;
+                                    $rating_value = null;
+                                    if (isset($rating['attribs']['']['scheme']))
+                                    {
+                                        $rating_scheme = $this->sanitize($rating['attribs']['']['scheme'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    else
+                                    {
+                                        $rating_scheme = 'urn:simple';
+                                    }
+                                    if (isset($rating['data']))
+                                    {
+                                        $rating_value = $this->sanitize($rating['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $ratings[] = $this->registry->create('Rating', array($rating_scheme, $rating_value));
+                                }
+                                if (is_array($ratings))
+                                {
+                                    $ratings = array_values(array_unique($ratings));
+                                }
+                            }
+                            else
+                            {
+                                $ratings = $ratings_parent;
+                            }
+
+                            // RESTRICTIONS
+                            if (isset($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+                            {
+                                foreach ($content['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+                                {
+                                    $restriction_relationship = null;
+                                    $restriction_type = null;
+                                    $restriction_value = null;
+                                    if (isset($restriction['attribs']['']['relationship']))
+                                    {
+                                        $restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($restriction['attribs']['']['type']))
+                                    {
+                                        $restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($restriction['data']))
+                                    {
+                                        $restriction_value = $this->sanitize($restriction['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    $restrictions[] = $this->registry->create('Restriction', array($restriction_relationship, $restriction_type, $restriction_value));
+                                }
+                                if (is_array($restrictions))
+                                {
+                                    $restrictions = array_values(array_unique($restrictions));
+                                }
+                            }
+                            elseif (isset($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction']))
+                            {
+                                foreach ($group['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['restriction'] as $restriction)
+                                {
+                                    $restriction_relationship = null;
+                                    $restriction_type = null;
+                                    $restriction_value = null;
+                                    if (isset($restriction['attribs']['']['relationship']))
+                                    {
+                                        $restriction_relationship = $this->sanitize($restriction['attribs']['']['relationship'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+                                    if (isset($restriction['attribs']['']['type']))
+                                    {
+                                        $restriction_type = $this->sanitize($restriction['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                                    }
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2763-2795
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Item.php:2798-2830
+ 
+            foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'link') as $link)
+            {
+                if (isset($link['attribs']['']['href']) && !empty($link['attribs']['']['rel']) && $link['attribs']['']['rel'] === 'enclosure')
+                {
+                    // Attributes
+                    $bitrate = null;
+                    $channels = null;
+                    $duration = null;
+                    $expression = null;
+                    $framerate = null;
+                    $height = null;
+                    $javascript = null;
+                    $lang = null;
+                    $length = null;
+                    $medium = null;
+                    $samplingrate = null;
+                    $type = null;
+                    $url = null;
+                    $width = null;
+
+                    $url = $this->sanitize($link['attribs']['']['href'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($link));
+                    if (isset($link['attribs']['']['type']))
+                    {
+                        $type = $this->sanitize($link['attribs']['']['type'], SIMPLEPIE_CONSTRUCT_TEXT);
+                    }
+                    if (isset($link['attribs']['']['length']))
+                    {
+                        $length = ceil($link['attribs']['']['length']);
+                    }
+
+                    // Since we don't have group or content for these, we'll just pass the '*_parent' variables directly to the constructor
+                    $this->data['enclosures'][] = $this->registry->create('Enclosure', array($url, $type, $length, null, $bitrate, $captions_parent, $categories_parent, $channels, $copyrights_parent, $credits_parent, $description_parent, $duration_parent, $expression, $framerate, $hashes_parent, $height, $keywords_parent, $lang, $medium, $player_parent, $ratings_parent, $restrictions_parent, $samplingrate, $thumbnails_parent, $title_parent, $width));
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Content/Type/Sniffer.php:190-214
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Content/Type/Sniffer.php:224-248
+ 
+        elseif (substr($this->file->body, 0, 6) === 'GIF87a'
+            || substr($this->file->body, 0, 6) === 'GIF89a')
+        {
+            return 'image/gif';
+        }
+        elseif (substr($this->file->body, 0, 8) === "\x89\x50\x4E\x47\x0D\x0A\x1A\x0A")
+        {
+            return 'image/png';
+        }
+        elseif (substr($this->file->body, 0, 3) === "\xFF\xD8\xFF")
+        {
+            return 'image/jpeg';
+        }
+        elseif (substr($this->file->body, 0, 2) === "\x42\x4D")
+        {
+            return 'image/bmp';
+        }
+        elseif (substr($this->file->body, 0, 4) === "\x00\x00\x01\x00")
+        {
+            return 'image/vnd.microsoft.icon';
+        }
+        else
+        {
+            return $this->text_or_binary();
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IPv6.php:44-124
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Net/IPv6.php:100-180
+ 
+        $c2 = ($ip2 === '') ? -1 : substr_count($ip2, ':');
+
+        if (strpos($ip2, '.') !== false) {
+            $c2++;
+        }
+        // ::
+        if ($c1 === -1 && $c2 === -1) {
+            $ip = '0:0:0:0:0:0:0:0';
+        }
+        // ::xxx
+        else if ($c1 === -1) {
+            $fill = str_repeat('0:', 7 - $c2);
+            $ip = str_replace('::', $fill, $ip);
+        }
+        // xxx::
+        else if ($c2 === -1) {
+            $fill = str_repeat(':0', 7 - $c1);
+            $ip = str_replace('::', $fill, $ip);
+        }
+        // xxx::xxx
+        else {
+            $fill = ':' . str_repeat('0:', 6 - $c2 - $c1);
+            $ip = str_replace('::', $fill, $ip);
+        }
+        return $ip;
+    }
+
+    /**
+     * Compresses an IPv6 address
+     *
+     * RFC 4291 allows you to compress consecutive zero pieces in an address to
+     * '::'. This method expects a valid IPv6 address and compresses consecutive
+     * zero pieces to '::'.
+     *
+     * Example:  FF01:0:0:0:0:0:0:101   ->  FF01::101
+     *           0:0:0:0:0:0:0:1        ->  ::1
+     *
+     * @see uncompress()
+     * @param string $ip An IPv6 address
+     * @return string The compressed IPv6 address
+     */
+    public static function compress($ip) {
+        // Prepare the IP to be compressed
+        $ip = self::uncompress($ip);
+        $ip_parts = self::split_v6_v4($ip);
+
+        // Replace all leading zeros
+        $ip_parts[0] = preg_replace('/(^|:)0+([0-9])/', '\1\2', $ip_parts[0]);
+
+        // Find bunches of zeros
+        if (preg_match_all('/(?:^|:)(?:0(?::|$))+/', $ip_parts[0], $matches, PREG_OFFSET_CAPTURE)) {
+            $max = 0;
+            $pos = null;
+            foreach ($matches[0] as $match) {
+                if (strlen($match[0]) > $max) {
+                    $max = strlen($match[0]);
+                    $pos = $match[1];
+                }
+            }
+
+            $ip_parts[0] = substr_replace($ip_parts[0], '::', $pos, $max);
+        }
+
+        if ($ip_parts[1] !== '') {
+            return implode(':', $ip_parts);
+        }
+        else {
+            return $ip_parts[0];
+        }
+    }
+
+    /**
+     * Splits an IPv6 address into the IPv6 and IPv4 representation parts
+     *
+     * RFC 4291 allows you to represent the last two parts of an IPv6 address
+     * using the standard IPv4 representation
+     *
+     * Example:  0:0:0:0:0:0:13.1.68.3
+     *           0:0:0:0:0:FFFF:129.144.52.38
+     *
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IPv6.php:127-192
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Net/IPv6.php:195-260
+ 
+    protected static function split_v6_v4($ip) {
+        if (strpos($ip, '.') !== false) {
+            $pos = strrpos($ip, ':');
+            $ipv6_part = substr($ip, 0, $pos);
+            $ipv4_part = substr($ip, $pos + 1);
+            return array($ipv6_part, $ipv4_part);
+        }
+        else {
+            return array($ip, '');
+        }
+    }
+
+    /**
+     * Checks an IPv6 address
+     *
+     * Checks if the given IP is a valid IPv6 address
+     *
+     * @param string $ip An IPv6 address
+     * @return bool true if $ip is a valid IPv6 address
+     */
+    public static function check_ipv6($ip) {
+        $ip = self::uncompress($ip);
+        list($ipv6, $ipv4) = self::split_v6_v4($ip);
+        $ipv6 = explode(':', $ipv6);
+        $ipv4 = explode('.', $ipv4);
+        if (count($ipv6) === 8 && count($ipv4) === 1 || count($ipv6) === 6 && count($ipv4) === 4) {
+            foreach ($ipv6 as $ipv6_part) {
+                // The section can't be empty
+                if ($ipv6_part === '') {
+                    return false;
+                }
+
+                // Nor can it be over four characters
+                if (strlen($ipv6_part) > 4) {
+                    return false;
+                }
+
+                // Remove leading zeros (this is safe because of the above)
+                $ipv6_part = ltrim($ipv6_part, '0');
+                if ($ipv6_part === '') {
+                    $ipv6_part = '0';
+                }
+
+                // Check the value is valid
+                $value = hexdec($ipv6_part);
+                if (dechex($value) !== strtolower($ipv6_part) || $value < 0 || $value > 0xFFFF) {
+                    return false;
+                }
+            }
+            if (count($ipv4) === 4) {
+                foreach ($ipv4 as $ipv4_part) {
+                    $value = (int) $ipv4_part;
+                    if ((string) $value !== $ipv4_part || $value < 0 || $value > 0xFF) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IRI.php:145-195
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/IRI.php:138-188
+ 
+    public function __toString() {
+        return $this->get_iri();
+    }
+
+    /**
+     * Overload __set() to provide access via properties
+     *
+     * @param string $name Property name
+     * @param mixed $value Property value
+     */
+    public function __set($name, $value) {
+        if (method_exists($this, 'set_' . $name)) {
+            call_user_func(array($this, 'set_' . $name), $value);
+        }
+        elseif (
+               $name === 'iauthority'
+            || $name === 'iuserinfo'
+            || $name === 'ihost'
+            || $name === 'ipath'
+            || $name === 'iquery'
+            || $name === 'ifragment'
+        ) {
+            call_user_func(array($this, 'set_' . substr($name, 1)), $value);
+        }
+    }
+
+    /**
+     * Overload __get() to provide access via properties
+     *
+     * @param string $name Property name
+     * @return mixed
+     */
+    public function __get($name) {
+        // isset() returns false for null, we don't want to do that
+        // Also why we use array_key_exists below instead of isset()
+        $props = get_object_vars($this);
+
+        if (
+            $name === 'iri' ||
+            $name === 'uri' ||
+            $name === 'iauthority' ||
+            $name === 'authority'
+        ) {
+            $method = 'get_' . $name;
+            $return = $this->$method();
+        }
+        elseif (array_key_exists($name, $props)) {
+            $return = $this->$name;
+        }
+        // host -> ihost
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IRI.php:189-230
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/IRI.php:187-228
+ 
+            $return = $this->$method();
+        }
+        elseif (array_key_exists($name, $props)) {
+            $return = $this->$name;
+        }
+        // host -> ihost
+        elseif (($prop = 'i' . $name) && array_key_exists($prop, $props)) {
+            $name = $prop;
+            $return = $this->$prop;
+        }
+        // ischeme -> scheme
+        elseif (($prop = substr($name, 1)) && array_key_exists($prop, $props)) {
+            $name = $prop;
+            $return = $this->$prop;
+        }
+        else {
+            trigger_error('Undefined property: ' . get_class($this) . '::' . $name, E_USER_NOTICE);
+            $return = null;
+        }
+
+        if ($return === null && isset($this->normalization[$this->scheme][$name])) {
+            return $this->normalization[$this->scheme][$name];
+        }
+        else {
+            return $return;
+        }
+    }
+
+    /**
+     * Overload __isset() to provide access via properties
+     *
+     * @param string $name Property name
+     * @return bool
+     */
+    public function __isset($name) {
+        return (method_exists($this, 'get_' . $name) || isset($this->$name));
+    }
+
+    /**
+     * Overload __unset() to provide access via properties
+     *
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IRI.php:281-328
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/IRI.php:303-350
+ 
+                $target->scheme = $base->scheme;
+                $target->iuserinfo = $base->iuserinfo;
+                $target->ihost = $base->ihost;
+                $target->port = $base->port;
+                if ($relative->ipath !== '') {
+                    if ($relative->ipath[0] === '/') {
+                        $target->ipath = $relative->ipath;
+                    }
+                    elseif (($base->iuserinfo !== null || $base->ihost !== null || $base->port !== null) && $base->ipath === '') {
+                        $target->ipath = '/' . $relative->ipath;
+                    }
+                    elseif (($last_segment = strrpos($base->ipath, '/')) !== false) {
+                        $target->ipath = substr($base->ipath, 0, $last_segment + 1) . $relative->ipath;
+                    }
+                    else {
+                        $target->ipath = $relative->ipath;
+                    }
+                    $target->ipath = $target->remove_dot_segments($target->ipath);
+                    $target->iquery = $relative->iquery;
+                }
+                else {
+                    $target->ipath = $base->ipath;
+                    if ($relative->iquery !== null) {
+                        $target->iquery = $relative->iquery;
+                    }
+                    elseif ($base->iquery !== null) {
+                        $target->iquery = $base->iquery;
+                    }
+                }
+                $target->ifragment = $relative->ifragment;
+            }
+        }
+        else {
+            $target = clone $base;
+            $target->ifragment = null;
+        }
+        $target->scheme_normalization();
+        return $target;
+    }
+
+    /**
+     * Parse an IRI into scheme/authority/path/query/fragment segments
+     *
+     * @param string $iri
+     * @return array
+     */
+    protected function parse_iri($iri) {
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IRI.php:358-708
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/IRI.php:404-754
+ 
+    protected function remove_dot_segments($input) {
+        $output = '';
+        while (strpos($input, './') !== false || strpos($input, '/.') !== false || $input === '.' || $input === '..') {
+            // A: If the input buffer begins with a prefix of "../" or "./",
+            // then remove that prefix from the input buffer; otherwise,
+            if (strpos($input, '../') === 0) {
+                $input = substr($input, 3);
+            }
+            elseif (strpos($input, './') === 0) {
+                $input = substr($input, 2);
+            }
+            // B: if the input buffer begins with a prefix of "/./" or "/.",
+            // where "." is a complete path segment, then replace that prefix
+            // with "/" in the input buffer; otherwise,
+            elseif (strpos($input, '/./') === 0) {
+                $input = substr($input, 2);
+            }
+            elseif ($input === '/.') {
+                $input = '/';
+            }
+            // C: if the input buffer begins with a prefix of "/../" or "/..",
+            // where ".." is a complete path segment, then replace that prefix
+            // with "/" in the input buffer and remove the last segment and its
+            // preceding "/" (if any) from the output buffer; otherwise,
+            elseif (strpos($input, '/../') === 0) {
+                $input = substr($input, 3);
+                $output = substr_replace($output, '', strrpos($output, '/'));
+            }
+            elseif ($input === '/..') {
+                $input = '/';
+                $output = substr_replace($output, '', strrpos($output, '/'));
+            }
+            // D: if the input buffer consists only of "." or "..", then remove
+            // that from the input buffer; otherwise,
+            elseif ($input === '.' || $input === '..') {
+                $input = '';
+            }
+            // E: move the first path segment in the input buffer to the end of
+            // the output buffer, including the initial "/" character (if any)
+            // and any subsequent characters up to, but not including, the next
+            // "/" character or the end of the input buffer
+            elseif (($pos = strpos($input, '/', 1)) !== false) {
+                $output .= substr($input, 0, $pos);
+                $input = substr_replace($input, '', 0, $pos);
+            }
+            else {
+                $output .= $input;
+                $input = '';
+            }
+        }
+        return $output . $input;
+    }
+
+    /**
+     * Replace invalid character with percent encoding
+     *
+     * @param string $string Input string
+     * @param string $extra_chars Valid characters not in iunreserved or
+     *                            iprivate (this is ASCII-only)
+     * @param bool $iprivate Allow iprivate
+     * @return string
+     */
+    protected function replace_invalid_with_pct_encoding($string, $extra_chars, $iprivate = false) {
+        // Normalize as many pct-encoded sections as possible
+        $string = preg_replace_callback('/(?:%[A-Fa-f0-9]{2})+/', array(&$this, 'remove_iunreserved_percent_encoded'), $string);
+
+        // Replace invalid percent characters
+        $string = preg_replace('/%(?![A-Fa-f0-9]{2})/', '%25', $string);
+
+        // Add unreserved and % to $extra_chars (the latter is safe because all
+        // pct-encoded sections are now valid).
+        $extra_chars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~%';
+
+        // Now replace any bytes that aren't allowed with their pct-encoded versions
+        $position = 0;
+        $strlen = strlen($string);
+        while (($position += strspn($string, $extra_chars, $position)) < $strlen) {
+            $value = ord($string[$position]);
+
+            // Start position
+            $start = $position;
+
+            // By default we are valid
+            $valid = true;
+
+            // No one byte sequences are valid due to the while.
+            // Two byte sequence:
+            if (($value & 0xE0) === 0xC0) {
+                $character = ($value & 0x1F) \ 6;
+                $length = 2;
+                $remaining = 1;
+            }
+            // Three byte sequence:
+            elseif (($value & 0xF0) === 0xE0) {
+                $character = ($value & 0x0F) \ 12;
+                $length = 3;
+                $remaining = 2;
+            }
+            // Four byte sequence:
+            elseif (($value & 0xF8) === 0xF0) {
+                $character = ($value & 0x07) \ 18;
+                $length = 4;
+                $remaining = 3;
+            }
+            // Invalid byte:
+            else {
+                $valid = false;
+                $length = 1;
+                $remaining = 0;
+            }
+
+            if ($remaining) {
+                if ($position + $length <= $strlen) {
+                    for ($position++; $remaining; $position++) {
+                        $value = ord($string[$position]);
+
+                        // Check that the byte is valid, then add it to the character:
+                        if (($value & 0xC0) === 0x80) {
+                            $character |= ($value & 0x3F) \ (--$remaining * 6);
+                        }
+                        // If it is invalid, count the sequence as invalid and reprocess the current byte:
+                        else {
+                            $valid = false;
+                            $position--;
+                            break;
+                        }
+                    }
+                }
+                else {
+                    $position = $strlen - 1;
+                    $valid = false;
+                }
+            }
+
+            // Percent encode anything invalid or not in ucschar
+            if (
+                // Invalid sequences
+                !$valid
+                // Non-shortest form sequences are invalid
+                || $length > 1 && $character <= 0x7F
+                || $length > 2 && $character <= 0x7FF
+                || $length > 3 && $character <= 0xFFFF
+                // Outside of range of ucschar codepoints
+                // Noncharacters
+                || ($character & 0xFFFE) === 0xFFFE
+                || $character >= 0xFDD0 && $character <= 0xFDEF
+                || (
+                    // Everything else not in ucschar
+                       $character > 0xD7FF && $character < 0xF900
+                    || $character < 0xA0
+                    || $character > 0xEFFFD
+                )
+                && (
+                    // Everything not in iprivate, if it applies
+                       !$iprivate
+                    || $character < 0xE000
+                    || $character > 0x10FFFD
+                )
+            ) {
+                // If we were a character, pretend we weren't, but rather an error.
+                if ($valid) {
+                    $position--;
+                }
+
+                for ($j = $start; $j <= $position; $j++) {
+                    $string = substr_replace($string, sprintf('%%%02X', ord($string[$j])), $j, 1);
+                    $j += 2;
+                    $position += 2;
+                    $strlen += 2;
+                }
+            }
+        }
+
+        return $string;
+    }
+
+    /**
+     * Callback function for preg_replace_callback.
+     *
+     * Removes sequences of percent encoded bytes that represent UTF-8
+     * encoded characters in iunreserved
+     *
+     * @param array $match PCRE match
+     * @return string Replacement
+     */
+    protected function remove_iunreserved_percent_encoded($match) {
+        // As we just have valid percent encoded sequences we can just explode
+        // and ignore the first member of the returned array (an empty string).
+        $bytes = explode('%', $match[0]);
+
+        // Initialize the new string (this is what will be returned) and that
+        // there are no bytes remaining in the current sequence (unsurprising
+        // at the first byte!).
+        $string = '';
+        $remaining = 0;
+
+        // Loop over each and every byte, and set $value to its value
+        for ($i = 1, $len = count($bytes); $i < $len; $i++) {
+            $value = hexdec($bytes[$i]);
+
+            // If we're the first byte of sequence:
+            if (!$remaining) {
+                // Start position
+                $start = $i;
+
+                // By default we are valid
+                $valid = true;
+
+                // One byte sequence:
+                if ($value <= 0x7F) {
+                    $character = $value;
+                    $length = 1;
+                }
+                // Two byte sequence:
+                elseif (($value & 0xE0) === 0xC0) {
+                    $character = ($value & 0x1F) \ 6;
+                    $length = 2;
+                    $remaining = 1;
+                }
+                // Three byte sequence:
+                elseif (($value & 0xF0) === 0xE0) {
+                    $character = ($value & 0x0F) \ 12;
+                    $length = 3;
+                    $remaining = 2;
+                }
+                // Four byte sequence:
+                elseif (($value & 0xF8) === 0xF0) {
+                    $character = ($value & 0x07) \ 18;
+                    $length = 4;
+                    $remaining = 3;
+                }
+                // Invalid byte:
+                else {
+                    $valid = false;
+                    $remaining = 0;
+                }
+            }
+            // Continuation byte:
+            else {
+                // Check that the byte is valid, then add it to the character:
+                if (($value & 0xC0) === 0x80) {
+                    $remaining--;
+                    $character |= ($value & 0x3F) \ ($remaining * 6);
+                }
+                // If it is invalid, count the sequence as invalid and reprocess the current byte as the start of a sequence:
+                else {
+                    $valid = false;
+                    $remaining = 0;
+                    $i--;
+                }
+            }
+
+            // If we've reached the end of the current byte sequence, append it to Unicode::$data
+            if (!$remaining) {
+                // Percent encode anything invalid or not in iunreserved
+                if (
+                    // Invalid sequences
+                    !$valid
+                    // Non-shortest form sequences are invalid
+                    || $length > 1 && $character <= 0x7F
+                    || $length > 2 && $character <= 0x7FF
+                    || $length > 3 && $character <= 0xFFFF
+                    // Outside of range of iunreserved codepoints
+                    || $character < 0x2D
+                    || $character > 0xEFFFD
+                    // Noncharacters
+                    || ($character & 0xFFFE) === 0xFFFE
+                    || $character >= 0xFDD0 && $character <= 0xFDEF
+                    // Everything else not in iunreserved (this is all BMP)
+                    || $character === 0x2F
+                    || $character > 0x39 && $character < 0x41
+                    || $character > 0x5A && $character < 0x61
+                    || $character > 0x7A && $character < 0x7E
+                    || $character > 0x7E && $character < 0xA0
+                    || $character > 0xD7FF && $character < 0xF900
+                ) {
+                    for ($j = $start; $j <= $i; $j++) {
+                        $string .= '%' . strtoupper($bytes[$j]);
+                    }
+                }
+                else {
+                    for ($j = $start; $j <= $i; $j++) {
+                        $string .= chr(hexdec($bytes[$j]));
+                    }
+                }
+            }
+        }
+
+        // If we have any bytes left over they are invalid (i.e., we are
+        // mid-way through a multi-byte sequence)
+        if ($remaining) {
+            for ($j = $start; $j < $len; $j++) {
+                $string .= '%' . strtoupper($bytes[$j]);
+            }
+        }
+
+        return $string;
+    }
+
+    protected function scheme_normalization() {
+        if (isset($this->normalization[$this->scheme]['iuserinfo']) && $this->iuserinfo === $this->normalization[$this->scheme]['iuserinfo']) {
+            $this->iuserinfo = null;
+        }
+        if (isset($this->normalization[$this->scheme]['ihost']) && $this->ihost === $this->normalization[$this->scheme]['ihost']) {
+            $this->ihost = null;
+        }
+        if (isset($this->normalization[$this->scheme]['port']) && $this->port === $this->normalization[$this->scheme]['port']) {
+            $this->port = null;
+        }
+        if (isset($this->normalization[$this->scheme]['ipath']) && $this->ipath === $this->normalization[$this->scheme]['ipath']) {
+            $this->ipath = '';
+        }
+        if (isset($this->ihost) && empty($this->ipath)) {
+            $this->ipath = '/';
+        }
+        if (isset($this->normalization[$this->scheme]['iquery']) && $this->iquery === $this->normalization[$this->scheme]['iquery']) {
+            $this->iquery = null;
+        }
+        if (isset($this->normalization[$this->scheme]['ifragment']) && $this->ifragment === $this->normalization[$this->scheme]['ifragment']) {
+            $this->ifragment = null;
+        }
+    }
+
+    /**
+     * Check if the object represents a valid IRI. This needs to be done on each
+     * call as some things change depending on another part of the IRI.
+     *
+     * @return bool
+     */
+    public function is_valid() {
+        $isauthority = $this->iuserinfo !== null || $this->ihost !== null || $this->port !== null;
+        if ($this->ipath !== '' &&
+            (
+                $isauthority && $this->ipath[0] !== '/' ||
+                (
+                    $this->scheme === null &&
+                    !$isauthority &&
+                    strpos($this->ipath, ':') !== false &&
+                    (strpos($this->ipath, '/') === false ? true : strpos($this->ipath, ':') < strpos($this->ipath, '/'))
+                )
+            )
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Set the entire IRI. Returns true on success, false on failure (if there
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/Requests/IRI.php:673-696
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/IRI.php:753-776
+ 
+        if (isset($this->normalization[$this->scheme]['iquery']) && $this->iquery === $this->normalization[$this->scheme]['iquery']) {
+            $this->iquery = null;
+        }
+        if (isset($this->normalization[$this->scheme]['ifragment']) && $this->ifragment === $this->normalization[$this->scheme]['ifragment']) {
+            $this->ifragment = null;
+        }
+    }
+
+    /**
+     * Check if the object represents a valid IRI. This needs to be done on each
+     * call as some things change depending on another part of the IRI.
+     *
+     * @return bool
+     */
+    public function is_valid() {
+        $isauthority = $this->iuserinfo !== null || $this->ihost !== null || $this->port !== null;
+        if ($this->ipath !== '' &&
+            (
+                $isauthority && $this->ipath[0] !== '/' ||
+                (
+                    $this->scheme === null &&
+                    !$isauthority &&
+                    strpos($this->ipath, ':') !== false &&
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Parse/Date.php:711-766
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Misc.php:1769-1824
+ 
+    public function remove_rfc2822_comments($string)
+    {
+        $string = (string) $string;
+        $position = 0;
+        $length = strlen($string);
+        $depth = 0;
+
+        $output = '';
+
+        while ($position < $length && ($pos = strpos($string, '(', $position)) !== false)
+        {
+            $output .= substr($string, $position, $pos - $position);
+            $position = $pos + 1;
+            if ($string[$pos - 1] !== '\\')
+            {
+                $depth++;
+                while ($depth && $position < $length)
+                {
+                    $position += strcspn($string, '()', $position);
+                    if ($string[$position - 1] === '\\')
+                    {
+                        $position++;
+                        continue;
+                    }
+                    elseif (isset($string[$position]))
+                    {
+                        switch ($string[$position])
+                        {
+                            case '(':
+                                $depth++;
+                                break;
+
+                            case ')':
+                                $depth--;
+                                break;
+                        }
+                        $position++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                $output .= '(';
+            }
+        }
+        $output .= substr($string, $position);
+
+        return $output;
+    }
+
+    /**
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2186-2209
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:248-271
+ 
+        if ($author = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'author'))
+        {
+            $name = null;
+            $url = null;
+            $email = null;
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+            {
+                $name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+            {
+                $url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+            }
+            if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+            {
+                $email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $url !== null)
+            {
+                $authors[] = $this->registry->create('Author', array($name, $url, $email));
+            }
+        }
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_DC_11, 'creator') as $author)
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2284-2344
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:331-391
+ 
+        foreach ((array) $this->get_channel_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'contributor') as $contributor)
+        {
+            $name = null;
+            $url = null;
+            $email = null;
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+            {
+                $name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+            {
+                $url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+            }
+            if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+            {
+                $email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+            }
+            if ($name !== null || $email !== null || $url !== null)
+            {
+                $contributors[] = $this->registry->create('Author', array($name, $url, $email));
+            }
+        }
+
+        if (!empty($contributors))
+        {
+            return array_unique($contributors);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Get a single link for the feed
+     *
+     * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
+     * @param int $key The link that you want to return.  Remember that arrays begin with 0, not 1
+     * @param string $rel The relationship of the link to return
+     * @return string|null Link URL
+     */
+    public function get_link($key = 0, $rel = 'alternate')
+    {
+        $links = $this->get_links($rel);
+        if (isset($links[$key]))
+        {
+            return $links[$key];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Get the permalink for the item
+     *
+     * Returns the first link available with a relationship of "alternate".
+     * Identical to {@see get_link()} with key 0
+     *
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-simplepie.php:2399-2438
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/SimplePie/Source.php:421-460
+ 
+            if ($links = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'link'))
+            {
+                $this->data['links']['alternate'][] = $this->sanitize($links[0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($links[0]));
+            }
+
+            $keys = array_keys($this->data['links']);
+            foreach ($keys as $key)
+            {
+                if ($this->registry->call('Misc', 'is_isegment_nz_nc', array($key)))
+                {
+                    if (isset($this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]))
+                    {
+                        $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] = array_merge($this->data['links'][$key], $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key]);
+                        $this->data['links'][$key] =& $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key];
+                    }
+                    else
+                    {
+                        $this->data['links'][SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY . $key] =& $this->data['links'][$key];
+                    }
+                }
+                elseif (substr($key, 0, 41) === SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY)
+                {
+                    $this->data['links'][substr($key, 41)] =& $this->data['links'][$key];
+                }
+                $this->data['links'][$key] = array_unique($this->data['links'][$key]);
+            }
+        }
+
+        if (isset($this->data['links'][$rel]))
+        {
+            return $this->data['links'][$rel];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public function get_all_discovered_feeds()
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-xmlrpc-server.php:5572-5593
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/class-wp-xmlrpc-server.php:5695-5716
+ 
+                'postid' => $postdata['ID'],
+                'description' => $post['main'],
+                'title' => $postdata['post_title'],
+                'link' => $link,
+                'permaLink' => $link,
+                // commented out because no other tool seems to use this
+                //          'content' => $entry['post_content'],
+                'categories' => $categories,
+                'mt_excerpt' => $postdata['post_excerpt'],
+                'mt_text_more' => $post['extended'],
+                'wp_more_text' => $post['more_text'],
+                'mt_allow_comments' => $allow_comments,
+                'mt_allow_pings' => $allow_pings,
+                'mt_keywords' => $tagnames,
+                'wp_slug' => $postdata['post_name'],
+                'wp_password' => $postdata['post_password'],
+                'wp_author_id' => (string) $author->ID,
+                'wp_author_display_name' => $author->display_name,
+                'date_created_gmt' => $post_date_gmt,
+                'post_status' => $postdata['post_status'],
+                'custom_fields' => $this->get_custom_fields($post_ID),
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/ms-blogs.php:802-836
+ 	~/projects/wordpress/wordpress-thin/src/wp-includes/ms-blogs.php:875-909
+ 
+    if ( function_exists( 'wp_cache_switch_to_blog' ) ) {
+        wp_cache_switch_to_blog( $new_blog );
+    } else {
+        global $wp_object_cache;
+
+        if ( is_object( $wp_object_cache ) && isset( $wp_object_cache->global_groups ) ) {
+            $global_groups = $wp_object_cache->global_groups;
+        } else {
+            $global_groups = false;
+        }
+        wp_cache_init();
+
+        if ( function_exists( 'wp_cache_add_global_groups' ) ) {
+            if ( is_array( $global_groups ) ) {
+                wp_cache_add_global_groups( $global_groups );
+            } else {
+                wp_cache_add_global_groups( array( 'users', 'userlogins', 'usermeta', 'user_meta', 'useremail', 'userslugs', 'site-transient', 'site-options', 'site-lookup', 'blog-lookup', 'blog-details', 'rss', 'global-posts', 'blog-id-cache', 'networks', 'sites', 'site-details' ) );
+            }
+            wp_cache_add_non_persistent_groups( array( 'counts', 'plugins' ) );
+        }
+    }
+
+    if ( did_action( 'init' ) ) {
+        $wp_roles = new WP_Roles();
+        $current_user = wp_get_current_user();
+        $current_user->for_blog( $new_blog );
+    }
+
+    /** This filter is documented in wp-includes/ms-blogs.php */
+    do_action( 'switch_blog', $new_blog, $prev_blog_id );
+    $GLOBALS['switched'] = true;
+
+    return true;
+}
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyeleven/content-gallery.php:52-91
+ 	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyeleven/content-quote.php:36-75
+ 
+        <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
+    </div><!-- .entry-content -->
+    <?php endif; ?>
+
+    <footer class="entry-meta">
+        <?php $show_sep = false; ?>
+        <?php
+            /* translators: used between list items, there is a space after the comma */
+            $categories_list = get_the_category_list( __( ', ', 'twentyeleven' ) );
+            if ( $categories_list ):
+        ?>
+        <span class="cat-links">
+            <?php printf( __( '<span class="%1$s">Posted in</span> %2$s', 'twentyeleven' ), 'entry-utility-prep entry-utility-prep-cat-links', $categories_list );
+            $show_sep = true; ?>
+        </span>
+        <?php endif; // End if categories ?>
+        <?php
+            /* translators: used between list items, there is a space after the comma */
+            $tags_list = get_the_tag_list( '', __( ', ', 'twentyeleven' ) );
+            if ( $tags_list ):
+            if ( $show_sep ) : ?>
+        <span class="sep"> | </span>
+            <?php endif; // End if $show_sep ?>
+        <span class="tag-links">
+            <?php printf( __( '<span class="%1$s">Tagged</span> %2$s', 'twentyeleven' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list );
+            $show_sep = true; ?>
+        </span>
+        <?php endif; // End if $tags_list ?>
+
+        <?php if ( comments_open() ) : ?>
+        <?php if ( $show_sep ) : ?>
+        <span class="sep"> | </span>
+        <?php endif; // End if $show_sep ?>
+        <span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentyeleven' ) . '</span>', __( '<b>1</b> Reply', 'twentyeleven' ), __( '<b>%</b> Replies', 'twentyeleven' ) ); ?></span>
+        <?php endif; // End if comments_open() ?>
+
+        <?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
+    </footer><!-- .entry-meta -->
+</article><!-- #post-<?php the_ID(); ?> -->
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentythirteen/content-image.php:11-47
+ 	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentythirteen/content-video.php:11-47
+ 
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header class="entry-header">
+        <?php if ( is_single() ) : ?>
+        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <?php else : ?>
+        <h1 class="entry-title">
+            <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+        </h1>
+        <?php endif; // is_single() ?>
+    </header><!-- .entry-header -->
+
+    <div class="entry-content">
+        <?php
+            /* translators: %s: Name of current post */
+            the_content( sprintf(
+                __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'twentythirteen' ),
+                the_title( '<span class="screen-reader-text">', '</span>', false )
+            ) );
+
+            wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
+        ?>
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+        <?php twentythirteen_entry_meta(); ?>
+
+        <?php if ( comments_open() && ! is_single() ) : ?>
+        <span class="comments-link">
+            <?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a comment', 'twentythirteen' ) . '</span>', __( 'One comment so far', 'twentythirteen' ), __( 'View all % comments', 'twentythirteen' ) ); ?>
+        </span><!-- .comments-link -->
+        <?php endif; // comments_open() ?>
+        <?php edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
+
+        <?php if ( is_single() && get_the_author_meta( 'description' ) && is_multi_author() ) : ?>
+            <?php get_template_part( 'author-bio' ); ?>
+        <?php endif; ?>
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyeleven/functions.php:718-745
+ 	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyten/functions.php:568-595
+ 
+    $images = array();
+
+    if ( function_exists( 'get_post_galleries' ) ) {
+        $galleries = get_post_galleries( get_the_ID(), false );
+        if ( isset( $galleries[0]['ids'] ) )
+            $images = explode( ',', $galleries[0]['ids'] );
+    } else {
+        $pattern = get_shortcode_regex();
+        preg_match( "/$pattern/s", get_the_content(), $match );
+        $atts = shortcode_parse_atts( $match[3] );
+        if ( isset( $atts['ids'] ) )
+            $images = explode( ',', $atts['ids'] );
+    }
+
+    if ( ! $images ) {
+        $images = get_posts( array(
+            'fields'         => 'ids',
+            'numberposts'    => 999,
+            'order'          => 'ASC',
+            'orderby'        => 'menu_order',
+            'post_mime_type' => 'image',
+            'post_parent'    => get_the_ID(),
+            'post_type'      => 'attachment',
+        ) );
+    }
+
+    return $images;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyeleven/image.php:55-84
+ 	~/projects/wordpress/wordpress-thin/src/wp-content/themes/twentyten/loop-attachment.php:69-98
+ 
+    $attachments = array_values( get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) ) );
+    foreach ( $attachments as $k => $attachment ) {
+        if ( $attachment->ID == $post->ID )
+            break;
+    }
+
+    // If there is more than 1 attachment in a gallery
+    if ( count( $attachments ) > 1 ) {
+        $k++;
+        if ( isset( $attachments[ $k ] ) )
+            // get the URL of the next image attachment
+            $next_attachment_url = get_attachment_link( $attachments[ $k ]->ID );
+        else
+            // or get the URL of the first image attachment
+            $next_attachment_url = get_attachment_link( $attachments[0]->ID );
+    } else {
+        // or, if there's only 1 image, get the URL of the image
+        $next_attachment_url = wp_get_attachment_url();
+    }
+?>
+                                    <a href="<?php echo esc_url( $next_attachment_url ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php
+                                    /**
+                                     * Filter the Twenty Eleven default attachment size.
+                                     *
+                                     * @since Twenty Eleven 1.0
+                                     *
+                                     * @param int The height and width attachment size dimensions in pixels. Default 848.
+                                     */
+                                    $attachment_size = apply_filters( 'twentyeleven_attachment_size', 848 );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/media.php:1572-1596
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/media.php:1728-1752
+ 
+            $item .= "<input type='text' class='text' id='$name' name='$name' value='" . esc_attr( $field['value'] ) . "'{$required_attr}{$aria_required} />";
+        }
+        if ( !empty( $field['helps'] ) )
+            $item .= "<p class='help'>" . join( "</p>\n<p class='help'>", array_unique( (array) $field['helps'] ) ) . '</p>';
+        $item .= "</td>\n\t\t</tr>\n";
+
+        $extra_rows = array();
+
+        if ( !empty( $field['errors'] ) )
+            foreach ( array_unique( (array) $field['errors'] ) as $error )
+                $extra_rows['error'][] = $error;
+
+        if ( !empty( $field['extra_rows'] ) )
+            foreach ( $field['extra_rows'] as $class => $rows )
+                foreach ( (array) $rows as $html )
+                    $extra_rows[$class][] = $html;
+
+        foreach ( $extra_rows as $class => $rows )
+            foreach ( $rows as $html )
+                $item .= "\t\t<tr><td></td><td class='$class'>$html</td></tr>\n";
+    }
+
+    if ( !empty( $form_fields['_final'] ) )
+        $item .= "\t\t<tr class='final'><td colspan='2'>{$form_fields['_final']}</td></tr>\n";
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-wp-filesystem-ssh2.php:594-630
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-wp-filesystem-direct.php:480-516
+ 
+        while (false !== ($entry = $dir->read()) ) {
+            $struc = array();
+            $struc['name'] = $entry;
+
+            if ( '.' == $struc['name'] || '..' == $struc['name'] )
+                continue; //Do not care about these folders.
+
+            if ( ! $include_hidden && '.' == $struc['name'][0] )
+                continue;
+
+            if ( $limit_file && $struc['name'] != $limit_file )
+                continue;
+
+            $struc['perms']     = $this->gethchmod($path.'/'.$entry);
+            $struc['permsn']    = $this->getnumchmodfromh($struc['perms']);
+            $struc['number']     = false;
+            $struc['owner']        = $this->owner($path.'/'.$entry);
+            $struc['group']        = $this->group($path.'/'.$entry);
+            $struc['size']        = $this->size($path.'/'.$entry);
+            $struc['lastmodunix']= $this->mtime($path.'/'.$entry);
+            $struc['lastmod']   = date('M j',$struc['lastmodunix']);
+            $struc['time']        = date('h:i:s',$struc['lastmodunix']);
+            $struc['type']        = $this->is_dir($path.'/'.$entry) ? 'd' : 'f';
+
+            if ( 'd' == $struc['type'] ) {
+                if ( $recursive )
+                    $struc['files'] = $this->dirlist($path . '/' . $struc['name'], $include_hidden, $recursive);
+                else
+                    $struc['files'] = array();
+            }
+
+            $ret[ $struc['name'] ] = $struc;
+        }
+        $dir->close();
+        unset($dir);
+        return $ret;
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/ajax-actions.php:3330-3363
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/ajax-actions.php:3592-3625
+ 
+    $upgrader = new Theme_Upgrader( $skin );
+    $result   = $upgrader->install( $api->download_link );
+
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        $status['debug'] = $skin->get_upgrade_messages();
+    }
+
+    if ( is_wp_error( $result ) ) {
+        $status['errorCode']    = $result->get_error_code();
+        $status['errorMessage'] = $result->get_error_message();
+        wp_send_json_error( $status );
+    } elseif ( is_wp_error( $skin->result ) ) {
+        $status['errorCode']    = $skin->result->get_error_code();
+        $status['errorMessage'] = $skin->result->get_error_message();
+        wp_send_json_error( $status );
+    } elseif ( $skin->get_errors()->get_error_code() ) {
+        $status['errorMessage'] = $skin->get_error_messages();
+        wp_send_json_error( $status );
+    } elseif ( is_null( $result ) ) {
+        global $wp_filesystem;
+
+        $status['errorCode']    = 'unable_to_connect_to_filesystem';
+        $status['errorMessage'] = __( 'Unable to connect to the filesystem. Please confirm your credentials.' );
+
+        // Pass through the error from WP_Filesystem if one was raised.
+        if ( $wp_filesystem instanceof WP_Filesystem_Base && is_wp_error( $wp_filesystem->errors ) && $wp_filesystem->errors->get_error_code() ) {
+            $status['errorMessage'] = esc_html( $wp_filesystem->errors->get_error_message() );
+        }
+
+        wp_send_json_error( $status );
+    }
+
+    $status['themeName'] = wp_get_theme( $slug )->get( 'Name' );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/theme.php:30-66
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/plugin.php:787-823
+ 
+    ob_start();
+    $credentials = request_filesystem_credentials( $redirect );
+    $data = ob_get_clean();
+
+    if ( false === $credentials ) {
+        if ( ! empty( $data ) ){
+            include_once( ABSPATH . 'wp-admin/admin-header.php');
+            echo $data;
+            include( ABSPATH . 'wp-admin/admin-footer.php');
+            exit;
+        }
+        return;
+    }
+
+    if ( ! WP_Filesystem( $credentials ) ) {
+        ob_start();
+        request_filesystem_credentials( $redirect, '', true ); // Failed to connect, Error and request again.
+        $data = ob_get_clean();
+
+        if ( ! empty($data) ) {
+            include_once( ABSPATH . 'wp-admin/admin-header.php');
+            echo $data;
+            include( ABSPATH . 'wp-admin/admin-footer.php');
+            exit;
+        }
+        return;
+    }
+
+    if ( ! is_object($wp_filesystem) )
+        return new WP_Error('fs_unavailable', __('Could not access filesystem.'));
+
+    if ( is_wp_error($wp_filesystem->errors) && $wp_filesystem->errors->get_error_code() )
+        return new WP_Error('fs_error', __('Filesystem error.'), $wp_filesystem->errors);
+
+    // Get the base plugin folder.
+    $themes_dir = $wp_filesystem->wp_themes_dir();
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-ftp-sockets.php:119-133
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-ftp-pure.php:99-113
+ 
+            return FALSE;
+        }
+        if($this->_passive) {
+            if(!$this->_exec("PASV", "pasv")) {
+                $this->_data_close();
+                return FALSE;
+            }
+            if(!$this->_checkCode()) {
+                $this->_data_close();
+                return FALSE;
+            }
+            $ip_port = explode(",", preg_replace("/^.+ \\(?([0-9]{1,3},[0-9]{1,3},[0-9]{1,3},[0-9]{1,3},[0-9]+,[0-9]+)\\)?.*$/s", "\\1", $this->_message));
+            $this->_datahost=$ip_port[0].".".$ip_port[1].".".$ip_port[2].".".$ip_port[3];
+            $this->_dataport=(((int)$ip_port[4])\8) + ((int)$ip_port[5]);
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-wp-filesystem-ftpsockets.php:253-316
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/class-wp-filesystem-ftpext.php:243-306
+ 
+        return $this->ftp->chmod($file, $mode);
+    }
+
+    /**
+     * @access public
+     *
+     * @param string $file
+     * @return string
+     */
+    public function owner($file) {
+        $dir = $this->dirlist($file);
+        return $dir[$file]['owner'];
+    }
+
+    /**
+     * @access public
+     *
+     * @param string $file
+     * @return string
+     */
+    public function getchmod($file) {
+        $dir = $this->dirlist($file);
+        return $dir[$file]['permsn'];
+    }
+
+    /**
+     * @access public
+     *
+     * @param string $file
+     * @return string
+     */
+    public function group($file) {
+        $dir = $this->dirlist($file);
+        return $dir[$file]['group'];
+    }
+
+    /**
+     * @access public
+     *
+     * @param string   $source
+     * @param string   $destination
+     * @param bool     $overwrite
+     * @param int|bool $mode
+     * @return bool
+     */
+    public function copy($source, $destination, $overwrite = false, $mode = false) {
+        if ( ! $overwrite && $this->exists($destination) )
+            return false;
+
+        $content = $this->get_contents($source);
+        if ( false === $content )
+            return false;
+
+        return $this->put_contents($destination, $content, $mode);
+    }
+
+    /**
+     * @access public
+     *
+     * @param string $source
+     * @param string $destination
+     * @param bool   $overwrite
+     * @return bool
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/file.php:666-693
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/includes/file.php:772-799
+ 
+    if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
+        $available_space = @disk_free_space( WP_CONTENT_DIR );
+        if ( $available_space && ( $uncompressed_size * 2.1 ) > $available_space )
+            return new WP_Error( 'disk_full_unzip_file', __( 'Could not copy files. You may have run out of disk space.' ), compact( 'uncompressed_size', 'available_space' ) );
+    }
+
+    $needed_dirs = array_unique($needed_dirs);
+    foreach ( $needed_dirs as $dir ) {
+        // Check the parent folders of the folders all exist within the creation array.
+        if ( untrailingslashit($to) == $dir ) // Skip over the working directory, We know this exists (or will exist)
+            continue;
+        if ( strpos($dir, $to) === false ) // If the directory is not within the working directory, Skip it
+            continue;
+
+        $parent_folder = dirname($dir);
+        while ( !empty($parent_folder) && untrailingslashit($to) != $parent_folder && !in_array($parent_folder, $needed_dirs) ) {
+            $needed_dirs[] = $parent_folder;
+            $parent_folder = dirname($parent_folder);
+        }
+    }
+    asort($needed_dirs);
+
+    // Create those directories if need be:
+    foreach ( $needed_dirs as $_dir ) {
+        // Only check to see if the Dir exists upon creation failure. Less I/O this way.
+        if ( ! $wp_filesystem->mkdir( $_dir, FS_CHMOD_DIR ) && ! $wp_filesystem->is_dir( $_dir ) ) {
+            return new WP_Error( 'mkdir_failed_ziparchive', __( 'Could not create directory.' ), substr( $_dir, strlen( $to ) ) );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/network/site-settings.php:11-50
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/network/site-info.php:11-50
+ 
+require_once( dirname( __FILE__ ) . '/admin.php' );
+
+if ( ! current_user_can( 'manage_sites' ) )
+    wp_die( __( 'Sorry, you are not allowed to edit this site.' ) );
+
+get_current_screen()->add_help_tab( array(
+    'id'      => 'overview',
+    'title'   => __('Overview'),
+    'content' =>
+        '<p>' . __('The menu is for editing information specific to individual sites, particularly if the admin area of a site is unavailable.') . '</p>' .
+        '<p>' . __('<strong>Info</strong> &mdash; The site URL is rarely edited as this can cause the site to not work properly. The Registered date and Last Updated date are displayed. Network admins can mark a site as archived, spam, deleted and mature, to remove from public listings or disable.') . '</p>' .
+        '<p>' . __('<strong>Users</strong> &mdash; This displays the users associated with this site. You can also change their role, reset their password, or remove them from the site. Removing the user from the site does not remove the user from the network.') . '</p>' .
+        '<p>' . sprintf( __('<strong>Themes</strong> &mdash; This area shows themes that are not already enabled across the network. Enabling a theme in this menu makes it accessible to this site. It does not activate the theme, but allows it to show in the site&#8217;s Appearance menu. To enable a theme for the entire network, see the <a href="%s">Network Themes</a> screen.' ), network_admin_url( 'themes.php' ) ) . '</p>' .
+        '<p>' . __('<strong>Settings</strong> &mdash; This page shows a list of all settings associated with this site. Some are created by WordPress and others are created by plugins you activate. Note that some fields are grayed out and say Serialized Data. You cannot modify these values due to the way the setting is stored in the database.') . '</p>'
+) );
+
+get_current_screen()->set_help_sidebar(
+    '<p><strong>' . __('For more information:') . '</strong></p>' .
+    '<p>' . __('<a href="https://codex.wordpress.org/Network_Admin_Sites_Screen">Documentation on Site Management</a>') . '</p>' .
+    '<p>' . __('<a href="https://wordpress.org/support/forum/multisite/">Support Forums</a>') . '</p>'
+);
+
+$id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0;
+
+if ( ! $id )
+    wp_die( __('Invalid site ID.') );
+
+$details = get_site( $id );
+if ( ! $details ) {
+    wp_die( __( 'The requested site does not exist.' ) );
+}
+
+if ( !can_edit_network( $details->site_id ) )
+    wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
+
+$is_main_site = is_main_site( $id );
+
+if ( isset($_REQUEST['action']) && 'update-site' == $_REQUEST['action'] && is_array( $_POST['option'] ) ) {
+    check_admin_referer( 'edit-site' );
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-admin/nav-menus.php:69-92
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/nav-menus.php:142-165
+ 
+        check_admin_referer( 'move-menu_item' );
+        $menu_item_id = isset( $_REQUEST['menu-item'] ) ? (int) $_REQUEST['menu-item'] : 0;
+        if ( is_nav_menu_item( $menu_item_id ) ) {
+            $menus = isset( $_REQUEST['menu'] ) ? array( (int) $_REQUEST['menu'] ) : wp_get_object_terms( $menu_item_id, 'nav_menu', array( 'fields' => 'ids' ) );
+            if ( ! is_wp_error( $menus ) && ! empty( $menus[0] ) ) {
+                $menu_id = (int) $menus[0];
+                $ordered_menu_items = wp_get_nav_menu_items( $menu_id );
+                $menu_item_data = (array) wp_setup_nav_menu_item( get_post( $menu_item_id ) );
+
+                // Set up the data we need in one pass through the array of menu items.
+                $dbids_to_orders = array();
+                $orders_to_dbids = array();
+                foreach ( (array) $ordered_menu_items as $ordered_menu_item_object ) {
+                    if ( isset( $ordered_menu_item_object->ID ) ) {
+                        if ( isset( $ordered_menu_item_object->menu_order ) ) {
+                            $dbids_to_orders[$ordered_menu_item_object->ID] = $ordered_menu_item_object->menu_order;
+                            $orders_to_dbids[$ordered_menu_item_object->menu_order] = $ordered_menu_item_object->ID;
+                        }
+                    }
+                }
+
+                // Get next in order.
+                if (
+
+  -	~/projects/wordpress/wordpress-thin/src/wp-includes/customize/class-wp-customize-background-position-control.php:43-63
+ 	~/projects/wordpress/wordpress-thin/src/wp-admin/custom-background.php:353-373
+ 
+        $options = array(
+            array(
+                'left top'   => array( 'label' => __( 'Top Left' ), 'icon' => 'dashicons dashicons-arrow-left-alt' ),
+                'center top' => array( 'label' => __( 'Top' ), 'icon' => 'dashicons dashicons-arrow-up-alt' ),
+                'right top'  => array( 'label' => __( 'Top Right' ), 'icon' => 'dashicons dashicons-arrow-right-alt' ),
+            ),
+            array(
+                'left center'   => array( 'label' => __( 'Left' ), 'icon' => 'dashicons dashicons-arrow-left-alt' ),
+                'center center' => array( 'label' => __( 'Center' ), 'icon' => 'background-position-center-icon' ),
+                'right center'  => array( 'label' => __( 'Right' ), 'icon' => 'dashicons dashicons-arrow-right-alt' ),
+            ),
+            array(
+                'left bottom'   => array( 'label' => __( 'Bottom Left' ), 'icon' => 'dashicons dashicons-arrow-left-alt' ),
+                'center bottom' => array( 'label' => __( 'Bottom' ), 'icon' => 'dashicons dashicons-arrow-down-alt' ),
+                'right bottom'  => array( 'label' => __( 'Bottom Right' ), 'icon' => 'dashicons dashicons-arrow-right-alt' ),
+            ),
+        );
+        ?>
+        <# if ( data.label ) { #>
+            <span class="customize-control-title">{{{ data.label }}}</span>
+
+0.97% duplicated lines out of 338416 total lines of code.
+
+Time: 4.36 seconds, Memory: 230.00Mb
